@@ -29,11 +29,17 @@ Sistem Permintaan Konsumsi Guru Tamu & Industri — React + TypeScript + Vite + 
    atau tempel isi [`supabase/functions/create-user/index.ts`](./supabase/functions/create-user/index.ts) lewat Dashboard → Edge Functions → New Function.
 
 6. **Seed akun & departemen awal**
-   Jalankan sekali dari komputer Anda (butuh Service Role Key dari Dashboard → Project Settings → API — JANGAN commit/bagikan key ini):
+
+   **Opsi A (disarankan, paling simpel): lewat SQL Editor.**
+   Buka SQL Editor, tempel seluruh isi [`seed_accounts.sql`](./seed_accounts.sql), lalu jalankan. Ini langsung membuat semua departemen (Produktif Jurusan + MGMP) dan akun login (Admin Konsumsi, Koordinator Jurusan, Wakasek, Superadmin, dan 1 akun requester per jurusan/MGMP). Aman dijalankan ulang.
+
+   **Opsi B: lewat Admin API (Node script)**, kalau opsi A bermasalah di project Anda:
    ```bash
    SUPABASE_URL=https://xxxx.supabase.co SUPABASE_SERVICE_ROLE_KEY=ey... node scripts/seed.mjs
    ```
-   Ini membuat semua departemen/jurusan dan akun login awal (lihat `scripts/seed.mjs` untuk daftar nama & role). Semua PIN default: `1234` — segera diganti lewat guru/staf terkait setelah login pertama.
+   (butuh Service Role Key dari Dashboard → Project Settings → API — JANGAN commit/bagikan key ini)
+
+   Semua PIN default: `1234` — segera diganti lewat guru/staf terkait setelah login pertama.
 
 7. **Jalankan aplikasi**
    ```bash
@@ -47,7 +53,8 @@ Login sebagai SUPERADMIN → menu **Master Data** → tab **Pengguna & Role** �
 ## Struktur backend
 
 - `schema.sql` — schema Postgres lengkap (tabel, RLS, trigger, storage, realtime), authoritative, aman dijalankan ulang.
+- `seed_accounts.sql` — seed departemen & akun awal lewat SQL langsung (opsi A, disarankan).
+- `scripts/seed.mjs` — seed departemen & akun awal lewat Supabase Admin API (opsi B).
 - `src/lib/supabaseClient.ts` — Supabase client singleton.
 - `src/services/storage.ts` — data layer aplikasi: in-memory cache + Supabase Realtime, dipakai seluruh komponen lewat `storageService`.
 - `supabase/functions/create-user` — Edge Function pembuatan akun baru (perlu service_role, tidak boleh dari client langsung).
-- `scripts/seed.mjs` — seed data awal (departemen + akun demo), dijalankan manual sekali.

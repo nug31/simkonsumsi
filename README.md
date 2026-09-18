@@ -35,7 +35,9 @@ Sistem Permintaan Konsumsi Guru Tamu & Industri — React + TypeScript + Vite + 
    ```
    (butuh Service Role Key dari Dashboard → Project Settings → API — JANGAN commit/bagikan/tempel key ini di tempat lain. Pakai sekali di terminal Anda sendiri, lalu pertimbangkan rotate key setelah selesai.)
 
-   Ini membuat semua departemen (Produktif Jurusan + MGMP) dan akun login: Admin Konsumsi, Koordinator Jurusan, Wakasek, Superadmin, dan 1 akun requester per jurusan/MGMP. Semua PIN default: `1234` — segera diganti lewat guru/staf terkait setelah login pertama. Aman dijalankan ulang (skip akun/departemen yang sudah ada).
+   Ini membuat semua departemen (Produktif Jurusan + MGMP) dan akun login: Admin Konsumsi, Koordinator Jurusan, Wakasek, Superadmin (masing-masing dengan PIN berbeda, lihat `scripts/seed.mjs`), dan 1 akun requester per jurusan/MGMP dengan PIN default `1234`. Aman dijalankan ulang (skip akun/departemen yang sudah ada).
+
+   Kalau akun admin/approver sudah pernah dibuat sebelumnya dengan PIN lama (1234 semua) dan ingin diperbarui ke PIN yang berbeda-beda tanpa membuat ulang akunnya, jalankan `scripts/update-admin-pins.mjs` dengan cara yang sama.
 
 7. **Jalankan aplikasi**
    ```bash
@@ -50,6 +52,7 @@ Login sebagai SUPERADMIN → menu **Master Data** → tab **Pengguna & Role** �
 
 - `schema.sql` — schema Postgres lengkap (tabel, RLS, trigger, storage, realtime), authoritative, aman dijalankan ulang.
 - `scripts/seed.mjs` — seed departemen & akun awal lewat Supabase Admin API resmi.
+- `scripts/update-admin-pins.mjs` — ubah PIN akun admin/approver yang sudah ada.
 - `src/lib/supabaseClient.ts` — Supabase client singleton.
 - `src/services/storage.ts` — data layer aplikasi: in-memory cache + Supabase Realtime, dipakai seluruh komponen lewat `storageService`.
 - `supabase/functions/create-user` — Edge Function pembuatan akun baru (perlu service_role, tidak boleh dari client langsung).

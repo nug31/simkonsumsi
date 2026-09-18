@@ -362,6 +362,7 @@ class SupabaseDataService {
     quantity: number;
     estimated_budget?: number;
     notes?: string;
+    location?: string;
     attachment_name?: string;
     attachment_url?: string;
     isDraft?: boolean;
@@ -392,6 +393,7 @@ class SupabaseDataService {
         quantity: Number(params.quantity) || 1,
         estimated_budget: params.estimated_budget ? Number(params.estimated_budget) : 0,
         notes: params.notes,
+        location: params.location,
         attachment_name: params.attachment_name,
         attachment_url: params.attachment_url,
         status: initialStatus,

@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS consumption_requests (
     quantity INT NOT NULL CHECK (quantity > 0),
     estimated_budget NUMERIC(12, 2) DEFAULT 0,
     notes TEXT,
+    location VARCHAR(150),
     attachment_name VARCHAR(255),
     attachment_url TEXT,
     status request_status_enum NOT NULL DEFAULT 'DRAFT',
@@ -106,6 +107,10 @@ CREATE TABLE IF NOT EXISTS consumption_requests (
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- Migrasi untuk database yang sudah ada sebelum kolom ini ditambahkan
+-- (CREATE TABLE IF NOT EXISTS di atas tidak menyentuh tabel yang sudah ada).
+ALTER TABLE consumption_requests ADD COLUMN IF NOT EXISTS location VARCHAR(150);
 
 -- 6. APPROVALS TABLE
 CREATE TABLE IF NOT EXISTS approvals (

@@ -213,6 +213,12 @@ export const RequestDetailModal: React.FC<Props> = ({
                   <span className="text-xs text-slate-500">Nama Guru Tamu / Narasumber:</span>
                   <p className="font-bold text-blue-900 text-base">{request.guest_name}</p>
                 </div>
+                {request.location && (
+                  <div className="sm:col-span-2">
+                    <span className="text-xs text-slate-500">Lokasi / Ruang Pelaksanaan:</span>
+                    <p className="font-semibold text-slate-900">{request.location}</p>
+                  </div>
+                )}
               </div>
             </div>
 

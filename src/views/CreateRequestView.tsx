@@ -84,6 +84,9 @@ export const CreateRequestView: React.FC<Props> = ({
   const [notes, setNotes] = useState(
     editRequest?.notes || 'Support konsumsi untuk trainer tamu industri'
   );
+  const [location, setLocation] = useState(
+    editRequest?.location || ''
+  );
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -159,6 +162,7 @@ export const CreateRequestView: React.FC<Props> = ({
             quantity: Number(quantity),
             estimated_budget: estimatedBudget ? Number(estimatedBudget) : undefined,
             notes: notes,
+            location: location || undefined,
           },
           !isDraft
         );
@@ -175,6 +179,7 @@ export const CreateRequestView: React.FC<Props> = ({
           quantity: Number(quantity),
           estimated_budget: estimatedBudget ? Number(estimatedBudget) : undefined,
           notes: notes,
+          location: location || undefined,
           isDraft: isDraft,
         });
       }
@@ -486,12 +491,26 @@ export const CreateRequestView: React.FC<Props> = ({
                 <option value="Lainnya">Lainnya</option>
               </select>
             </div>
+
+            {/* Lokasi / Ruang */}
+            <div className="sm:col-span-2">
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                10. Lokasi / Ruang Pelaksanaan <span className="text-slate-400 font-normal">(Opsional)</span>
+              </label>
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                placeholder="Contoh: Ruang Bengkel Otomotif TKR / Aula Utama Lt. 2"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
           </div>
 
           {/* Detail Konsumsi */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
-              10. Detail Konsumsi (Rincian Menu) <span className="text-slate-400 font-normal">(Opsional)</span>
+              11. Detail Konsumsi (Rincian Menu) <span className="text-slate-400 font-normal">(Opsional)</span>
             </label>
             <textarea
               rows={3}
@@ -509,7 +528,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Jumlah Paket */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                11. Jumlah Paket Konsumsi <span className="text-rose-500">*</span>
+                12. Jumlah Paket Konsumsi <span className="text-rose-500">*</span>
               </label>
               <input
                 type="number"
@@ -526,7 +545,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Estimasi Budget */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                13. Estimasi Budget (Opsional, Rp)
+                14. Estimasi Budget (Opsional, Rp)
               </label>
               <input
                 type="number"
@@ -541,7 +560,7 @@ export const CreateRequestView: React.FC<Props> = ({
           {/* Catatan / Keterangan */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
-              12. Catatan / Keterangan Khusus
+              13. Catatan / Keterangan Khusus
             </label>
             <textarea
               rows={2}

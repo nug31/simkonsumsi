@@ -85,6 +85,7 @@ export interface ConsumptionRequest {
   quantity: number;
   estimated_budget?: number;
   notes?: string;
+  location?: string;
   attachment_name?: string;
   attachment_url?: string;
   status: RequestStatus;

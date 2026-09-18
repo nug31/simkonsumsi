@@ -61,10 +61,11 @@ const DEPARTMENTS = [
 
 // --- Akun login: username dipakai sebagai {username}@simkonsumsi.local, password = pin ---
 const USERS = [
-  { username: 'admin-konsumsi', name: 'Admin Konsumsi', role: 'ADMIN_KONSUMSI', deptCode: 'Management', title: 'Koordinator Pelayanan Dapur & Logistik Konsumsi', pin: '1234' },
-  { username: 'koordinator-jurusan', name: 'Koordinator Jurusan', role: 'HOD', deptCode: 'Management', title: 'Koordinator Approval Produktif Jurusan', pin: '1234' },
-  { username: 'wakasek', name: 'Wakil Kepala Sekolah', role: 'WAKASEK', deptCode: 'Management', title: 'Wakasek - Approval MGMP', pin: '1234' },
-  { username: 'superadmin', name: 'Super Admin', role: 'SUPERADMIN', deptCode: 'Management', title: 'Administrator Sistem', pin: '1234' },
+  // PIN admin/approver sengaja dibedakan satu sama lain (bukan 1234 semua).
+  { username: 'admin-konsumsi', name: 'Admin Konsumsi', role: 'ADMIN_KONSUMSI', deptCode: 'Management', title: 'Koordinator Pelayanan Dapur & Logistik Konsumsi', pin: '5827' },
+  { username: 'koordinator-jurusan', name: 'Koordinator Jurusan', role: 'HOD', deptCode: 'Management', title: 'Koordinator Approval Produktif Jurusan', pin: '3164' },
+  { username: 'wakasek', name: 'Wakil Kepala Sekolah', role: 'WAKASEK', deptCode: 'Management', title: 'Wakasek - Approval MGMP', pin: '9042' },
+  { username: 'superadmin', name: 'Super Admin', role: 'SUPERADMIN', deptCode: 'Management', title: 'Administrator Sistem', pin: '7359' },
 
   { username: 'req-tkr', name: 'Guru Produktif TKR', role: 'REQUESTER', deptCode: 'TKR', title: 'Guru Produktif Teknik Kendaraan Ringan', pin: '1234' },
   { username: 'req-mesin', name: 'Guru Produktif Mesin', role: 'REQUESTER', deptCode: 'Mesin', title: 'Guru Produktif Teknik Pemesinan', pin: '1234' },

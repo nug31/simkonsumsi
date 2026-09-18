@@ -15,6 +15,10 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 const AUTH_EMAIL_DOMAIN = 'simkonsumsi.local';
+// Harus identik dengan src/lib/supabaseClient.ts (pinToPassword) dan
+// scripts/seed.mjs -- Supabase Auth menolak password < 6 karakter,
+// jadi PIN 4 digit dipanjangkan dengan akhiran tetap ini.
+const PIN_PASSWORD_SUFFIX = '-SKN';
 
 Deno.serve(async (req: Request) => {
   if (req.method !== 'POST') {
@@ -93,7 +97,7 @@ Deno.serve(async (req: Request) => {
 
   const { data: created, error: createError } = await adminClient.auth.admin.createUser({
     email,
-    password: pin,
+    password: `${pin}${PIN_PASSWORD_SUFFIX}`,
     email_confirm: true,
     user_metadata: { name, username },
   });

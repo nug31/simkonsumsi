@@ -20,6 +20,10 @@ import { createClient } from '@supabase/supabase-js';
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const AUTH_EMAIL_DOMAIN = 'simkonsumsi.local';
+// Harus identik dengan src/lib/supabaseClient.ts (pinToPassword) dan
+// supabase/functions/create-user -- Supabase Auth menolak password
+// < 6 karakter, jadi PIN 4 digit dipanjangkan dengan akhiran tetap ini.
+const PIN_PASSWORD_SUFFIX = '-SKN';
 
 if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
   console.error('Set env var SUPABASE_URL dan SUPABASE_SERVICE_ROLE_KEY dulu sebelum menjalankan script ini.');
@@ -113,7 +117,7 @@ async function main() {
     if (!authUser) {
       const { data, error } = await supabase.auth.admin.createUser({
         email,
-        password: u.pin,
+        password: `${u.pin}${PIN_PASSWORD_SUFFIX}`,
         email_confirm: true,
         user_metadata: { name: u.name, username: u.username },
       });

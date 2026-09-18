@@ -1,5 +1,5 @@
 import type { RealtimeChannel } from '@supabase/supabase-js';
-import { supabase, usernameToAuthEmail } from '../lib/supabaseClient';
+import { supabase, usernameToAuthEmail, pinToPassword } from '../lib/supabaseClient';
 import {
   Department,
   User,
@@ -319,7 +319,7 @@ class SupabaseDataService {
     pin: string
   ): Promise<{ success: boolean; message?: string; user?: User }> {
     const email = usernameToAuthEmail(username);
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password: pin });
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password: pinToPassword(pin) });
     if (error || !data.user) {
       return { success: false, message: 'Nama/PIN tidak valid. Coba lagi.' };
     }

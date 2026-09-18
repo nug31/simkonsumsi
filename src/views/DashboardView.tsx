@@ -321,9 +321,9 @@ export const DashboardView: React.FC<Props> = ({
               className="text-xs p-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden"
             >
               <option value="ALL">Semua Status</option>
-              <option value="WAITING_HOD">Menunggu HOD</option>
+              <option value="WAITING_HOD">Menunggu Koordinator HOD</option>
               <option value="WAITING_WAKASEK">Menunggu Wakasek</option>
-              <option value="APPROVED_HOD">Disetujui HOD</option>
+              <option value="APPROVED_HOD">Disetujui Koordinator HOD</option>
               <option value="APPROVED_WAKASEK">Disetujui Wakasek</option>
               <option value="PROCESSING">Diproses Dapur</option>
               <option value="READY">Konsumsi Siap</option>

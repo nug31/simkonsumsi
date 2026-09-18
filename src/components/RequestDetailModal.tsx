@@ -421,7 +421,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                   <div>
                     <p className="text-xs font-bold text-slate-800">Dikirim ke Approver</p>
                     <p className="text-[11px] text-slate-500">
-                      Tujuan: {request.target_approval_type === 'HOD' ? `HOD ${department?.code}` : 'Wakasek'}
+                      Tujuan: {request.target_approval_type === 'HOD' ? 'Koordinator HOD Jurusan' : 'Wakasek'}
                     </p>
                   </div>
                 </div>

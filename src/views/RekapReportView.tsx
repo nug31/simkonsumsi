@@ -297,7 +297,7 @@ export const RekapReportView: React.FC<Props> = ({
               className="w-full p-2 rounded-xl border border-slate-300 bg-white focus:outline-hidden"
             >
               <option value="ALL">Semua Status</option>
-              <option value="WAITING_HOD">Menunggu HOD</option>
+              <option value="WAITING_HOD">Menunggu Koordinator HOD</option>
               <option value="WAITING_WAKASEK">Menunggu Wakasek</option>
               <option value="APPROVED_HOD">Approved HOD</option>
               <option value="APPROVED_WAKASEK">Approved Wakasek</option>

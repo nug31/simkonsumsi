@@ -36,7 +36,7 @@ export const StatusBadge: React.FC<Props> = ({ status, size = 'md' }) => {
       return (
         <span className={`inline-flex items-center rounded-full bg-amber-50 text-amber-700 border border-amber-300 ${sizeClasses}`}>
           <Clock className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
-          Menunggu HOD
+          Menunggu Koordinator HOD
         </span>
       );
 
@@ -52,7 +52,7 @@ export const StatusBadge: React.FC<Props> = ({ status, size = 'md' }) => {
       return (
         <span className={`inline-flex items-center rounded-full bg-blue-50 text-blue-700 border border-blue-300 ${sizeClasses}`}>
           <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
-          Disetujui HOD
+          Disetujui Koordinator HOD
         </span>
       );
 

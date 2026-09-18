@@ -317,7 +317,10 @@ USING (
     OR (public.current_role() IN ('ADMIN_KONSUMSI', 'SUPERADMIN'))
 )
 WITH CHECK (
-    (requester_id = auth.uid() AND status NOT IN ('COMPLETED', 'CANCELLED'))
+    -- Tidak membatasi status baru di sini: requester boleh transisi ke
+    -- status apapun lewat aksi resmi (mis. batal -> CANCELLED). Baris mana
+    -- yang boleh disentuh sudah dibatasi oleh klausa USING di atas.
+    (requester_id = auth.uid())
     OR (target_approver_id = auth.uid())
     OR (public.current_role() IN ('ADMIN_KONSUMSI', 'SUPERADMIN'))
 );

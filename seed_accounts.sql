@@ -90,22 +90,31 @@ BEGIN
       RAISE EXCEPTION 'Departemen dengan code % tidak ditemukan untuk user %', v_user.dept_code, v_user.username;
     END IF;
 
-    -- Buat / update akun Supabase Auth (email + PIN sebagai password)
-    INSERT INTO auth.users (
-      instance_id, id, aud, role, email, encrypted_password,
-      email_confirmed_at, raw_app_meta_data, raw_user_meta_data,
-      is_super_admin, is_sso_user, created_at, updated_at, last_sign_in_at
-    ) VALUES (
-      '00000000-0000-0000-0000-000000000000', gen_random_uuid(), 'authenticated', 'authenticated',
-      v_email, crypt(v_user.pin, gen_salt('bf')),
-      now(), '{"provider":"email","providers":["email"]}'::jsonb,
-      jsonb_build_object('name', v_user.name, 'username', v_user.username),
-      false, false, now(), now(), now()
-    )
-    ON CONFLICT (email) DO UPDATE
-      SET encrypted_password = EXCLUDED.encrypted_password,
+    -- Buat / update akun Supabase Auth (email + PIN sebagai password).
+    -- Dicek manual (bukan ON CONFLICT) karena auth.users.email di Supabase
+    -- di-unique-kan lewat partial index, bukan constraint biasa yang bisa
+    -- dipakai sebagai target ON CONFLICT.
+    SELECT id INTO v_user_id FROM auth.users WHERE email = v_email;
+
+    IF v_user_id IS NULL THEN
+      v_user_id := gen_random_uuid();
+      INSERT INTO auth.users (
+        instance_id, id, aud, role, email, encrypted_password,
+        email_confirmed_at, raw_app_meta_data, raw_user_meta_data,
+        is_super_admin, is_sso_user, created_at, updated_at, last_sign_in_at
+      ) VALUES (
+        '00000000-0000-0000-0000-000000000000', v_user_id, 'authenticated', 'authenticated',
+        v_email, crypt(v_user.pin, gen_salt('bf')),
+        now(), '{"provider":"email","providers":["email"]}'::jsonb,
+        jsonb_build_object('name', v_user.name, 'username', v_user.username),
+        false, false, now(), now(), now()
+      );
+    ELSE
+      UPDATE auth.users
+      SET encrypted_password = crypt(v_user.pin, gen_salt('bf')),
           updated_at = now()
-    RETURNING id INTO v_user_id;
+      WHERE id = v_user_id;
+    END IF;
 
     -- Buat / update profil aplikasi
     INSERT INTO public.users (id, username, name, email, role, department_id, title, is_active)

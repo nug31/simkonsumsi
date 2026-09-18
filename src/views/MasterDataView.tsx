@@ -129,13 +129,13 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
       {/* SUBTAB 1: DEPARTMENTS & APPROVER MAPPINGS */}
       {activeSubTab === 'DEPARTMENTS' && (
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <h3 className="text-sm font-bold text-slate-900">
               Daftar Departemen & Koordinator Approver Terdaftar
             </h3>
             <button
               onClick={() => setShowAddDept(!showAddDept)}
-              className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs"
+              className="self-start sm:self-auto px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs shrink-0"
             >
               <Plus className="w-4 h-4" />
               Tambah Departemen
@@ -215,6 +215,7 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
 
           {/* Departments Table */}
           <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+            <div className="overflow-x-auto">
             <table className="w-full text-left text-xs text-slate-600">
               <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 uppercase tracking-wider text-[10px]">
                 <tr>
@@ -264,6 +265,7 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
                 })}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       )}
@@ -271,13 +273,13 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
       {/* SUBTAB 2: USERS & ROLES */}
       {activeSubTab === 'USERS' && (
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <h3 className="text-sm font-bold text-slate-900">
               Daftar Pengguna Sistem
             </h3>
             <button
               onClick={() => setShowAddUser(!showAddUser)}
-              className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs"
+              className="self-start sm:self-auto px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs shrink-0"
             >
               <UserPlus className="w-4 h-4" />
               Tambah Pengguna
@@ -379,6 +381,7 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
           )}
 
         <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+          <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-slate-600">
             <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 uppercase tracking-wider text-[10px]">
               <tr>
@@ -423,6 +426,7 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
               })}
             </tbody>
           </table>
+          </div>
         </div>
         </div>
       )}

@@ -69,7 +69,7 @@ export const PrintSlipModal: React.FC<Props> = ({
         </div>
 
         {/* Printable Document Area */}
-        <div className="p-8 overflow-y-auto flex-1 bg-white text-black font-sans text-xs">
+        <div className="p-4 sm:p-8 overflow-y-auto flex-1 bg-white text-black font-sans text-xs">
           
           {/* Official Letterhead (KOP SURAT) */}
           <div className="border-b-2 border-black pb-4 mb-6 text-center">
@@ -95,8 +95,8 @@ export const PrintSlipModal: React.FC<Props> = ({
           </div>
 
           {/* Table of Consumption Items */}
-          <div className="mb-6">
-            <table className="w-full border-collapse border border-black text-left text-xs">
+          <div className="mb-6 overflow-x-auto">
+            <table className="w-full min-w-[640px] border-collapse border border-black text-left text-xs">
               <thead>
                 <tr className="bg-slate-100 font-bold border-b border-black text-slate-900">
                   <th className="border border-black p-2 text-center w-8">No</th>

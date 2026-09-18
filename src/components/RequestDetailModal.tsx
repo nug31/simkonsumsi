@@ -7,7 +7,6 @@ import {
   ConsumptionProcessing 
 } from '../types';
 import { StatusBadge } from './StatusBadge';
-import { storageService } from '../services/storage';
 import { 
   X, 
   Calendar, 
@@ -276,23 +275,6 @@ export const RequestDetailModal: React.FC<Props> = ({
                     <p className="text-xs font-bold text-emerald-700">
                       Rp {request.estimated_budget.toLocaleString('id-ID')}
                     </p>
-                  </div>
-                )}
-                {request.attachment_url && (
-                  <div>
-                    <span className="text-xs text-slate-500">Lampiran Dokumen:</span>
-                    <button
-                      type="button"
-                      onClick={async () => {
-                        const url = await storageService.getAttachmentSignedUrl(request.attachment_url!);
-                        if (url) window.open(url, '_blank');
-                        else alert('Gagal membuka lampiran.');
-                      }}
-                      className="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800 hover:underline bg-blue-50/50 p-2 rounded-lg border border-blue-100 w-full text-left"
-                    >
-                      <FileText className="w-3.5 h-3.5 shrink-0" />
-                      {request.attachment_name || 'Lihat lampiran'}
-                    </button>
                   </div>
                 )}
               </div>

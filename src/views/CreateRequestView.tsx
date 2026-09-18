@@ -21,7 +21,6 @@ import {
   Sparkles, 
   Info, 
   AlertCircle,
-  Upload,
   MessageSquare,
   Building2,
   Check,
@@ -85,39 +84,10 @@ export const CreateRequestView: React.FC<Props> = ({
   const [notes, setNotes] = useState(
     editRequest?.notes || 'Support konsumsi untuk trainer tamu industri'
   );
-  const [attachmentName, setAttachmentName] = useState(
-    editRequest?.attachment_name || ''
-  );
-  const [attachmentUrl, setAttachmentUrl] = useState(
-    editRequest?.attachment_url || ''
-  );
-  const [isUploadingAttachment, setIsUploadingAttachment] = useState(false);
-  const [attachmentError, setAttachmentError] = useState('');
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedRequest, setSubmittedRequest] = useState<ConsumptionRequest | null>(null);
-
-  const handleAttachmentFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    if (file.size > 5 * 1024 * 1024) {
-      setAttachmentError('Ukuran file maksimal 5MB.');
-      return;
-    }
-    setAttachmentError('');
-    setIsUploadingAttachment(true);
-    try {
-      const { path, name } = await storageService.uploadAttachment(file);
-      setAttachmentUrl(path);
-      setAttachmentName(name);
-    } catch (err: any) {
-      setAttachmentError(err.message || 'Gagal mengunggah lampiran.');
-    } finally {
-      setIsUploadingAttachment(false);
-      e.target.value = '';
-    }
-  };
 
   // Presets for quick autofill
   const handleApplyPreset = (presetName: string) => {
@@ -154,7 +124,6 @@ export const CreateRequestView: React.FC<Props> = ({
     const newErrors: Record<string, string> = {};
     if (!consumptionDate) newErrors.consumptionDate = 'Tanggal konsumsi wajib dipilih';
     if (!consumptionTime) newErrors.consumptionTime = 'Jam konsumsi wajib diisi';
-    if (!consumptionDetail.trim()) newErrors.consumptionDetail = 'Detail menu / isi konsumsi wajib diisi';
     if (guestCount <= 0) newErrors.guestCount = 'Jumlah orang minimal 1';
     if (quantity <= 0) newErrors.quantity = 'Jumlah paket minimal 1';
     setErrors(newErrors);
@@ -190,8 +159,6 @@ export const CreateRequestView: React.FC<Props> = ({
             quantity: Number(quantity),
             estimated_budget: estimatedBudget ? Number(estimatedBudget) : undefined,
             notes: notes,
-            attachment_name: attachmentName || undefined,
-            attachment_url: attachmentUrl || undefined,
           },
           !isDraft
         );
@@ -208,8 +175,6 @@ export const CreateRequestView: React.FC<Props> = ({
           quantity: Number(quantity),
           estimated_budget: estimatedBudget ? Number(estimatedBudget) : undefined,
           notes: notes,
-          attachment_name: attachmentName || undefined,
-          attachment_url: attachmentUrl || undefined,
           isDraft: isDraft,
         });
       }
@@ -526,7 +491,7 @@ export const CreateRequestView: React.FC<Props> = ({
           {/* Detail Konsumsi */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
-              10. Detail Konsumsi (Rincian Menu) <span className="text-rose-500">*</span>
+              10. Detail Konsumsi (Rincian Menu) <span className="text-slate-400 font-normal">(Opsional)</span>
             </label>
             <textarea
               rows={3}
@@ -585,41 +550,6 @@ export const CreateRequestView: React.FC<Props> = ({
               placeholder="Contoh: Mohon disajikan di Ruang Bengkel Otomotif sebelum sesi pukul 10:00..."
               className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
             />
-          </div>
-
-          {/* Lampiran Dokumen */}
-          <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">
-              14. Lampiran Dokumen Pendukung (Opsional, maks 5MB)
-            </label>
-            <div className="flex items-center gap-3">
-              <label className={`flex-1 text-sm p-3 rounded-xl border border-dashed border-slate-300 flex items-center gap-2 cursor-pointer hover:border-blue-400 hover:bg-blue-50/40 transition-colors ${isUploadingAttachment ? 'opacity-60 pointer-events-none' : ''}`}>
-                <Upload className="w-4 h-4 text-slate-400 shrink-0" />
-                <span className="text-slate-600 truncate">
-                  {isUploadingAttachment
-                    ? 'Mengunggah...'
-                    : attachmentName || 'Pilih file surat undangan / tugas (PDF, gambar, dsb.)'}
-                </span>
-                <input
-                  type="file"
-                  className="hidden"
-                  onChange={handleAttachmentFileChange}
-                  disabled={isUploadingAttachment}
-                />
-              </label>
-              {attachmentName && (
-                <button
-                  type="button"
-                  onClick={() => { setAttachmentName(''); setAttachmentUrl(''); }}
-                  className="px-3 py-3 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-xl text-xs font-semibold transition-colors"
-                >
-                  Hapus
-                </button>
-              )}
-            </div>
-            {attachmentError && (
-              <p className="text-xs text-rose-600 mt-1.5">{attachmentError}</p>
-            )}
           </div>
 
           <div className="flex items-center justify-between pt-4 border-t border-slate-100">

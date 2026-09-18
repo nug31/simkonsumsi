@@ -814,24 +814,6 @@ class SupabaseDataService {
     this.notify();
   }
 
-  // ---- Attachments (Supabase Storage) ----
-  public async uploadAttachment(file: File): Promise<{ path: string; name: string }> {
-    if (!this.currentUser) throw new Error('Anda belum login.');
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-    const path = `${this.currentUser.id}/${Date.now()}_${safeName}`;
-    const { error } = await supabase.storage.from('attachments').upload(path, file, { upsert: false });
-    if (error) throw new Error(`Gagal mengunggah lampiran: ${error.message}`);
-    return { path, name: file.name };
-  }
-
-  public async getAttachmentSignedUrl(path: string, expiresInSeconds = 3600): Promise<string | null> {
-    const { data, error } = await supabase.storage.from('attachments').createSignedUrl(path, expiresInSeconds);
-    if (error || !data) {
-      console.error('Gagal membuat signed URL lampiran:', error?.message);
-      return null;
-    }
-    return data.signedUrl;
-  }
 }
 
 export const storageService = new SupabaseDataService();

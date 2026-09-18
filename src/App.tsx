@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { storageService } from './services/storage';
 import {
   User,
@@ -64,6 +64,20 @@ export const App: React.FC = () => {
 
   // Notifications for current user
   const userNotifications = currentUser ? storageService.getNotificationsForUser(currentUser.id) : [];
+
+  // Buka otomatis pengajuan dari link WhatsApp (?req=<id>) begitu user login.
+  const deepLinkAppliedRef = useRef(false);
+  useEffect(() => {
+    if (!currentUser || deepLinkAppliedRef.current) return;
+    const reqId = new URLSearchParams(window.location.search).get('req');
+    if (reqId) {
+      deepLinkAppliedRef.current = true;
+      setSelectedRequestId(reqId);
+      const url = new URL(window.location.href);
+      url.searchParams.delete('req');
+      window.history.replaceState({}, '', url.toString());
+    }
+  }, [currentUser]);
 
   // Handlers
   const handlePostLoginNavigate = (loggedInUser: User) => {

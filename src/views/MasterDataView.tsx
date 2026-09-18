@@ -245,13 +245,13 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
                       <td className="p-3.5">
                         {dept.type === 'JURUSAN' ? (
                           <div className="flex items-center gap-1 text-slate-800">
-                            <span className="font-bold text-blue-700">HOD:</span>{' '}
+                            <span className="font-bold text-blue-700">Koordinator HOD:</span>{' '}
                             {hodUser?.name || <span className="text-amber-600 italic">Belum disetel</span>}
                           </div>
                         ) : (
                           <div className="flex items-center gap-1 text-slate-800">
                             <span className="font-bold text-purple-700">Wakasek:</span>{' '}
-                            {wakasekUser?.name || 'Drs. H. Mulyadi, M.M.'}
+                            {wakasekUser?.name || <span className="text-amber-600 italic">Belum disetel</span>}
                           </div>
                         )}
                       </td>

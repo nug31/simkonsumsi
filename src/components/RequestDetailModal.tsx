@@ -183,7 +183,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                     {request.target_approval_type === 'HOD' ? 'Koordinator HOD Jurusan' : 'Wakil Kepala Sekolah'}
                   </p>
                   <p className="text-xs text-blue-600 font-medium">
-                    {targetApprover?.name || (request.target_approval_type === 'HOD' ? 'HOD ' + department?.code : 'Drs. H. Mulyadi, M.M.')}
+                    {targetApprover?.name || (request.target_approval_type === 'HOD' ? 'Koordinator HOD Jurusan' : 'Wakasek')}
                   </p>
                 </div>
               </div>
@@ -293,7 +293,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="w-4 h-4 text-amber-600" />
                   <h4 className="text-xs font-bold text-amber-900 uppercase tracking-wider">
-                    Tindakan Persetujuan ({request.target_approval_type === 'HOD' ? 'HOD' : 'Wakasek'})
+                    Tindakan Persetujuan ({request.target_approval_type === 'HOD' ? 'Koordinator HOD' : 'Wakasek'})
                   </h4>
                 </div>
                 <p className="text-xs text-amber-800 mb-3">
@@ -451,11 +451,11 @@ export const RequestDetailModal: React.FC<Props> = ({
                     <p className="text-xs font-bold text-slate-800">
                       {latestApproval
                         ? latestApproval.action === 'APPROVE'
-                          ? `Disetujui ${latestApproval.approver_role}`
+                          ? `Disetujui ${latestApproval.approver_role === 'HOD' ? 'Koordinator HOD' : latestApproval.approver_role}`
                           : latestApproval.action === 'REJECT'
                           ? 'Ditolak'
                           : 'Perlu Revisi'
-                        : `Menunggu ${request.target_approval_type === 'HOD' ? 'HOD' : 'Wakasek'}`}
+                        : `Menunggu ${request.target_approval_type === 'HOD' ? 'Koordinator HOD' : 'Wakasek'}`}
                     </p>
                     {latestApproval && (
                       <>

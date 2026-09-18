@@ -254,7 +254,7 @@ export const KitchenAdminView: React.FC<Props> = ({
               className="p-1.5 rounded-lg border border-slate-300 bg-white focus:outline-hidden"
             >
               <option value="ALL">Semua Status Dapur</option>
-              <option value="APPROVED_HOD">Approved HOD</option>
+              <option value="APPROVED_HOD">Disetujui Koordinator HOD</option>
               <option value="APPROVED_WAKASEK">Approved Wakasek</option>
               <option value="PROCESSING">Diproses Dapur</option>
               <option value="READY">Konsumsi Siap</option>

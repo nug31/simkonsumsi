@@ -618,8 +618,8 @@ export const CreateRequestView: React.FC<Props> = ({
                   Pengajuan ini akan dikirim kepada:{' '}
                   <span className="underline decoration-blue-500">
                     {approverInfo.approvalType === 'HOD'
-                      ? `Koordinator HOD ${currentDept?.code || ''} (${approverInfo.approverUser?.name || 'HOD'})`
-                      : `Wakasek (${approverInfo.approverUser?.name || 'Drs. H. Mulyadi, M.M.'})`}
+                      ? `Koordinator HOD Jurusan (${approverInfo.approverUser?.name || 'belum ditentukan'})`
+                      : `Wakasek (${approverInfo.approverUser?.name || 'belum ditentukan'})`}
                   </span>
                 </h4>
                 <p className="text-xs text-blue-800 leading-relaxed">

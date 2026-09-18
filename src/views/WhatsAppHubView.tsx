@@ -105,7 +105,7 @@ export const WhatsAppHubView: React.FC<Props> = ({ requests, users, departments 
                 }`}
               >
                 <span>Pengajuan Baru $\rightarrow$ Ke Approver</span>
-                <span className="text-[10px] opacity-80 font-normal">HOD/Wakasek</span>
+                <span className="text-[10px] opacity-80 font-normal">Koordinator HOD/Wakasek</span>
               </button>
 
               <button

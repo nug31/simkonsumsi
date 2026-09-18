@@ -223,7 +223,7 @@ export const Sidebar: React.FC<Props> = ({
               <p className="text-[11px] font-semibold text-slate-200">Logika Approval Otomatis</p>
             </div>
             <p className="text-[10px] text-slate-400 leading-relaxed">
-              <strong className="text-blue-300">Jurusan</strong> → HOD Jurusan → Admin Konsumsi<br />
+              <strong className="text-blue-300">Jurusan</strong> → Koordinator HOD Jurusan → Admin Konsumsi<br />
               <strong className="text-purple-300">Non-Jurusan</strong> → Wakasek → Admin Konsumsi
             </p>
           </div>

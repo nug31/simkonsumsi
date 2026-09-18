@@ -194,7 +194,7 @@ export const DashboardView: React.FC<Props> = ({
                 {kitchenOrders.length} Pesanan Konsumsi Perlu Dipersiapkan Dapur!
               </h3>
               <p className="text-xs text-indigo-800">
-                Pesanan telah mendapatkan approval resmi dari HOD/Wakasek dan siap dimasak / disajikan.
+                Pesanan telah mendapatkan approval resmi dari Koordinator HOD/Wakasek dan siap dimasak / disajikan.
               </p>
             </div>
           </div>
@@ -246,7 +246,7 @@ export const DashboardView: React.FC<Props> = ({
           <p className="text-2xl font-black text-blue-700">
             {currentUser.role === 'REQUESTER' ? myApprovedCount : approvedCount}
           </p>
-          <span className="text-[11px] text-blue-600 mt-1 block">Approved HOD/Wakasek</span>
+          <span className="text-[11px] text-blue-600 mt-1 block">Disetujui Koordinator HOD/Wakasek</span>
         </div>
 
         {/* Card 4: Diproses Dapur */}
@@ -406,7 +406,7 @@ export const DashboardView: React.FC<Props> = ({
                       {/* Approver */}
                       <td className="p-3.5 whitespace-nowrap">
                         <p className="font-medium text-slate-800 leading-tight">
-                          {approverUser?.name || (req.target_approval_type === 'HOD' ? 'HOD Jurusan' : 'Wakasek')}
+                          {approverUser?.name || (req.target_approval_type === 'HOD' ? 'Koordinator HOD Jurusan' : 'Wakasek')}
                         </p>
                         <span className="text-[10px] text-slate-400">
                           {req.target_approval_type === 'HOD' ? 'Koordinator HOD' : 'Wakil Kepala Sekolah'}

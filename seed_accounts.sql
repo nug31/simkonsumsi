@@ -116,6 +116,22 @@ BEGIN
       WHERE id = v_user_id;
     END IF;
 
+    -- Supabase Auth juga butuh baris di auth.identities untuk provider
+    -- 'email' -- tanpa ini, signInWithPassword bisa ditolak walau
+    -- auth.users & password-nya sudah benar.
+    IF NOT EXISTS (
+      SELECT 1 FROM auth.identities WHERE user_id = v_user_id AND provider = 'email'
+    ) THEN
+      INSERT INTO auth.identities (
+        id, provider_id, user_id, identity_data, provider,
+        last_sign_in_at, created_at, updated_at
+      ) VALUES (
+        gen_random_uuid(), v_user_id::text, v_user_id,
+        jsonb_build_object('sub', v_user_id::text, 'email', v_email, 'email_verified', true, 'phone_verified', false),
+        'email', now(), now(), now()
+      );
+    END IF;
+
     -- Buat / update profil aplikasi
     INSERT INTO public.users (id, username, name, email, role, department_id, title, is_active)
     VALUES (

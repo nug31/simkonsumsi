@@ -78,9 +78,6 @@ export const Navbar: React.FC<Props> = ({
               <div>
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-slate-900 tracking-tight text-lg">SIMKONSUMSI</span>
-                  <span className="hidden sm:inline-block bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider border border-blue-200">
-                    SMK Unggulan
-                  </span>
                 </div>
                 <p className="text-xs text-slate-500 hidden sm:block">Sistem Permintaan Konsumsi Guru Tamu & Industri</p>
               </div>

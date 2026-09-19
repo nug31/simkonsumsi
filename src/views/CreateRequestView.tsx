@@ -219,7 +219,7 @@ export const CreateRequestView: React.FC<Props> = ({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
         <div>
           <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <Utensils className="w-6 h-6 text-blue-600" />
+            <Utensils className="w-6 h-6 text-emerald-600" />
             {editRequest ? 'Perbarui Pengajuan Konsumsi' : 'Form Pengajuan Konsumsi Baru'}
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -234,7 +234,7 @@ export const CreateRequestView: React.FC<Props> = ({
             <button
               type="button"
               onClick={() => handleApplyPreset('jotun')}
-              className="text-xs px-2.5 py-1 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-lg border border-blue-200 font-semibold transition-colors"
+              className="text-xs px-2.5 py-1 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-lg border border-emerald-200 font-semibold transition-colors"
             >
               + Contoh TKR (Jotun)
             </button>
@@ -252,7 +252,7 @@ export const CreateRequestView: React.FC<Props> = ({
       {/* Step Indicators (UX Requirement 17) */}
       <div className="grid grid-cols-4 gap-2 bg-white p-3 rounded-2xl border border-slate-200 shadow-xs">
         <div className={`p-2.5 rounded-xl text-center transition-all ${
-          currentStep === 1 ? 'bg-blue-600 text-white font-bold' : currentStep > 1 ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-400'
+          currentStep === 1 ? 'bg-emerald-600 text-white font-bold' : currentStep > 1 ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-400'
         }`}>
           <div className="flex items-center justify-center gap-1.5 text-xs">
             <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] bg-black/10 font-bold">1</span>
@@ -261,7 +261,7 @@ export const CreateRequestView: React.FC<Props> = ({
         </div>
 
         <div className={`p-2.5 rounded-xl text-center transition-all ${
-          currentStep === 2 ? 'bg-blue-600 text-white font-bold' : currentStep > 2 ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-400'
+          currentStep === 2 ? 'bg-emerald-600 text-white font-bold' : currentStep > 2 ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-400'
         }`}>
           <div className="flex items-center justify-center gap-1.5 text-xs">
             <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] bg-black/10 font-bold">2</span>
@@ -270,7 +270,7 @@ export const CreateRequestView: React.FC<Props> = ({
         </div>
 
         <div className={`p-2.5 rounded-xl text-center transition-all ${
-          currentStep === 3 ? 'bg-blue-600 text-white font-bold' : currentStep > 3 ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-400'
+          currentStep === 3 ? 'bg-emerald-600 text-white font-bold' : currentStep > 3 ? 'bg-emerald-50 text-emerald-800 font-semibold' : 'text-slate-400'
         }`}>
           <div className="flex items-center justify-center gap-1.5 text-xs">
             <span className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] bg-black/10 font-bold">3</span>
@@ -321,12 +321,12 @@ export const CreateRequestView: React.FC<Props> = ({
                 2. Department / Unit (Otomatis Profil)
               </label>
               <div className="mt-1 flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-blue-600" />
+                <Building2 className="w-4 h-4 text-emerald-600" />
                 <span className="text-sm font-bold text-slate-800">
                   {currentDept?.name} ({currentDept?.code})
                 </span>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase ${
-                  currentDept?.type === 'JURUSAN' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'
+                  currentDept?.type === 'JURUSAN' ? 'bg-emerald-100 text-emerald-800' : 'bg-purple-100 text-purple-800'
                 }`}>
                   {currentDept?.type}
                 </span>
@@ -343,7 +343,7 @@ export const CreateRequestView: React.FC<Props> = ({
               <select
                 value={campus}
                 onChange={(e) => setCampus(e.target.value)}
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               >
                 {CAMPUS_OPTIONS.map(c => (
                   <option key={c} value={c}>{c}</option>
@@ -359,7 +359,7 @@ export const CreateRequestView: React.FC<Props> = ({
               <select
                 value={activityType}
                 onChange={(e) => setActivityType(e.target.value as ActivityType)}
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               >
                 <option value="Guru Tamu">Guru Tamu</option>
                 <option value="Trainer">Trainer Industri</option>
@@ -384,7 +384,7 @@ export const CreateRequestView: React.FC<Props> = ({
                 value={activityName}
                 onChange={(e) => setActivityName(e.target.value)}
                 placeholder="Contoh: Pendalaman Materi Seleksi Magang Industri PT Jotun Indonesia"
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               />
               {errors.activityName && (
                 <p className="text-xs text-rose-600 mt-1 font-medium">{errors.activityName}</p>
@@ -401,7 +401,7 @@ export const CreateRequestView: React.FC<Props> = ({
                 value={guestName}
                 onChange={(e) => setGuestName(e.target.value)}
                 placeholder="Contoh: Bpk. Hendra & Bpk. Arif (Technical Trainer PT Jotun)"
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               />
               {errors.guestName && (
                 <p className="text-xs text-rose-600 mt-1 font-medium">{errors.guestName}</p>
@@ -420,7 +420,7 @@ export const CreateRequestView: React.FC<Props> = ({
             <button
               type="button"
               onClick={handleNext}
-              className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors"
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors"
             >
               Lanjut ke Langkah 2
               <ArrowRight className="w-4 h-4" />
@@ -452,7 +452,7 @@ export const CreateRequestView: React.FC<Props> = ({
                   type="date"
                   value={consumptionDate}
                   onChange={(e) => setConsumptionDate(e.target.value)}
-                  className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                  className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
                 />
               </div>
               {errors.consumptionDate && (
@@ -469,7 +469,7 @@ export const CreateRequestView: React.FC<Props> = ({
                 type="time"
                 value={consumptionTime}
                 onChange={(e) => setConsumptionTime(e.target.value)}
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
               />
               {errors.consumptionTime && (
                 <p className="text-xs text-rose-600 mt-1">{errors.consumptionTime}</p>
@@ -490,7 +490,7 @@ export const CreateRequestView: React.FC<Props> = ({
                   setGuestCount(val);
                   setQuantity(val); // Sync default quantity
                 }}
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
               />
               {errors.guestCount && (
                 <p className="text-xs text-rose-600 mt-1">{errors.guestCount}</p>
@@ -505,7 +505,7 @@ export const CreateRequestView: React.FC<Props> = ({
               <select
                 value={consumptionType}
                 onChange={(e) => setConsumptionType(e.target.value as ConsumptionType)}
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
               >
                 <option value="Snack">Snack</option>
                 <option value="Makan">Makan (Nasi Box / Prasmanan)</option>
@@ -525,7 +525,7 @@ export const CreateRequestView: React.FC<Props> = ({
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="Contoh: Ruang Bengkel Otomotif TKR / Aula Utama Lt. 2"
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
               />
             </div>
           </div>
@@ -540,7 +540,7 @@ export const CreateRequestView: React.FC<Props> = ({
               value={consumptionDetail}
               onChange={(e) => setConsumptionDetail(e.target.value)}
               placeholder="Contoh: Snack box (lemper, kue lapis, risoles), air mineral botol 330ml, nasi box lauk ayam bakar..."
-              className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+              className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
             />
             {errors.consumptionDetail && (
               <p className="text-xs text-rose-600 mt-1 font-medium">{errors.consumptionDetail}</p>
@@ -558,7 +558,7 @@ export const CreateRequestView: React.FC<Props> = ({
                 min="1"
                 value={quantity}
                 onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
               />
               {errors.quantity && (
                 <p className="text-xs text-rose-600 mt-1">{errors.quantity}</p>
@@ -575,7 +575,7 @@ export const CreateRequestView: React.FC<Props> = ({
                 value={estimatedBudget}
                 onChange={(e) => setEstimatedBudget(e.target.value)}
                 placeholder="Contoh: 70000"
-                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
               />
             </div>
           </div>
@@ -590,7 +590,7 @@ export const CreateRequestView: React.FC<Props> = ({
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Contoh: Mohon disajikan di Ruang Bengkel Otomotif sebelum sesi pukul 10:00..."
-              className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+              className="w-full text-sm p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
             />
           </div>
 
@@ -606,7 +606,7 @@ export const CreateRequestView: React.FC<Props> = ({
             <button
               type="button"
               onClick={handleNext}
-              className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors"
+              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors"
             >
               Lanjut ke Review & Routing
               <ArrowRight className="w-4 h-4" />
@@ -628,24 +628,24 @@ export const CreateRequestView: React.FC<Props> = ({
           </div>
 
           {/* CRITICAL UX REQUIREMENT 17: Notification Routing Destination */}
-          <div className="p-5 rounded-2xl border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-900 shadow-xs">
+          <div className="p-5 rounded-2xl border-2 border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 text-emerald-900 shadow-xs">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
                 <Send className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">
                   Target Approval Otomatis Sistem
                 </span>
-                <h4 className="text-base font-extrabold text-blue-950">
+                <h4 className="text-base font-extrabold text-emerald-950">
                   Pengajuan ini akan dikirim kepada:{' '}
-                  <span className="underline decoration-blue-500">
+                  <span className="underline decoration-emerald-500">
                     {approverInfo.approvalType === 'HOD'
                       ? `Koordinator HOD Jurusan (${approverInfo.approverUser?.name || 'belum ditentukan'})`
                       : `Wakasek (${approverInfo.approverUser?.name || 'belum ditentukan'})`}
                   </span>
                 </h4>
-                <p className="text-xs text-blue-800 leading-relaxed">
+                <p className="text-xs text-emerald-800 leading-relaxed">
                   Berdasarkan departemen Anda (<strong>{currentDept?.name}</strong>), sistem menentukan approver secara otomatis tanpa pemilihan manual.
                 </p>
               </div>
@@ -679,7 +679,7 @@ export const CreateRequestView: React.FC<Props> = ({
               </div>
               <div>
                 <span className="text-slate-500 block">Guru Tamu / Narasumber:</span>
-                <span className="font-bold text-blue-800">{guestName}</span>
+                <span className="font-bold text-emerald-800">{guestName}</span>
               </div>
             </div>
 
@@ -698,7 +698,7 @@ export const CreateRequestView: React.FC<Props> = ({
               </div>
               <div>
                 <span className="text-slate-500 block">Jumlah Paket:</span>
-                <span className="font-extrabold text-blue-700">{quantity} Paket</span>
+                <span className="font-extrabold text-emerald-700">{quantity} Paket</span>
               </div>
             </div>
 
@@ -740,7 +740,7 @@ export const CreateRequestView: React.FC<Props> = ({
                 type="button"
                 disabled={isSubmitting}
                 onClick={() => handleSubmit(false)}
-                className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-md shadow-blue-500/20 transition-colors"
+                className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-md shadow-emerald-500/20 transition-colors"
               >
                 <Send className="w-4 h-4" />
                 {isSubmitting ? 'Mengirimkan...' : 'Submit Pengajuan'}
@@ -770,14 +770,14 @@ export const CreateRequestView: React.FC<Props> = ({
             <span className="text-[11px] text-slate-500 uppercase font-semibold block">
               Nomor Pengajuan Resmi
             </span>
-            <span className="font-mono text-xl font-extrabold text-blue-700 tracking-wider">
+            <span className="font-mono text-xl font-extrabold text-emerald-700 tracking-wider">
               {submittedRequest.request_number}
             </span>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 p-4 rounded-xl max-w-lg mx-auto text-left text-xs text-blue-900 space-y-1">
-            <p className="font-bold flex items-center gap-1.5 text-blue-950">
-              <Sparkles className="w-4 h-4 text-blue-600" />
+          <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl max-w-lg mx-auto text-left text-xs text-emerald-900 space-y-1">
+            <p className="font-bold flex items-center gap-1.5 text-emerald-950">
+              <Sparkles className="w-4 h-4 text-emerald-600" />
               Jalur Approval Aktif:
             </p>
             <p>
@@ -793,7 +793,7 @@ export const CreateRequestView: React.FC<Props> = ({
             <button
               type="button"
               onClick={() => onSuccess(submittedRequest)}
-              className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow-xs transition-colors"
+              className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-xs transition-colors"
             >
               Lihat Status Pengajuan
             </button>

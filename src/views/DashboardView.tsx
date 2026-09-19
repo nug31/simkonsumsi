@@ -119,21 +119,21 @@ export const DashboardView: React.FC<Props> = ({
     <div className="space-y-6 pb-12">
       
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-900 rounded-3xl p-6 text-white shadow-xl shadow-blue-900/10 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-900 rounded-3xl p-6 text-white shadow-xl shadow-emerald-900/10 relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-white/20 text-white backdrop-blur-xs border border-white/20 uppercase tracking-wider">
                 Portal Internal • {currentUser.role}
               </span>
-              <span className="text-xs text-blue-200">
+              <span className="text-xs text-emerald-200">
                 {new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
               </span>
             </div>
             <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight">
               Selamat Datang, {currentUser.name}
             </h1>
-            <p className="text-xs sm:text-sm text-blue-100 max-w-xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-emerald-100 max-w-xl leading-relaxed">
               SIMKONSUMSI mendigitalkan alur pengajuan konsumsi guru tamu, mitra industri & pelatihan sekolah secara transparan dan akuntabel.
             </p>
           </div>
@@ -142,9 +142,9 @@ export const DashboardView: React.FC<Props> = ({
             {['REQUESTER', 'HOD', 'WAKASEK', 'SUPERADMIN'].includes(currentUser.role) && (
               <button
                 onClick={onOpenCreate}
-                className="px-4 py-2.5 bg-white text-blue-900 hover:bg-blue-50 font-bold text-xs rounded-xl shadow-lg flex items-center gap-2 transition-all shrink-0"
+                className="px-4 py-2.5 bg-white text-emerald-900 hover:bg-emerald-50 font-bold text-xs rounded-xl shadow-lg flex items-center gap-2 transition-all shrink-0"
               >
-                <PlusCircle className="w-4 h-4 text-blue-700" />
+                <PlusCircle className="w-4 h-4 text-emerald-700" />
                 Buat Pengajuan Baru
               </button>
             )}
@@ -152,7 +152,7 @@ export const DashboardView: React.FC<Props> = ({
         </div>
 
         {/* Ambient Decorative glow */}
-        <div className="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
+        <div className="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-emerald-500/20 blur-3xl pointer-events-none" />
       </div>
 
       {/* Role-Specific Alert Cards */}
@@ -184,23 +184,23 @@ export const DashboardView: React.FC<Props> = ({
 
       {/* Admin Konsumsi: Pending Kitchen Queue Callout */}
       {currentUser.role === 'ADMIN_KONSUMSI' && kitchenOrders.length > 0 && (
-        <div className="bg-indigo-50 border border-indigo-300 rounded-2xl p-4 flex items-center justify-between shadow-xs">
+        <div className="bg-teal-50 border border-teal-300 rounded-2xl p-4 flex items-center justify-between shadow-xs">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center font-bold">
               <ChefHat className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-indigo-950">
+              <h3 className="text-sm font-bold text-teal-950">
                 {kitchenOrders.length} Pesanan Konsumsi Perlu Dipersiapkan Dapur!
               </h3>
-              <p className="text-xs text-indigo-800">
+              <p className="text-xs text-teal-800">
                 Pesanan telah mendapatkan approval resmi dari Koordinator HOD/Wakasek dan siap dimasak / disajikan.
               </p>
             </div>
           </div>
           <button
             onClick={() => onNavigateTab('kitchen')}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shrink-0"
+            className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors shrink-0"
           >
             Buka Antrean Dapur
             <ArrowRight className="w-3.5 h-3.5" />
@@ -215,7 +215,7 @@ export const DashboardView: React.FC<Props> = ({
         <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between text-slate-500 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Total</span>
-            <Sparkles className="w-4 h-4 text-blue-500" />
+            <Sparkles className="w-4 h-4 text-emerald-500" />
           </div>
           <p className="text-2xl font-black text-slate-900">
             {currentUser.role === 'REQUESTER' ? myRequests.length : requests.length}
@@ -238,27 +238,27 @@ export const DashboardView: React.FC<Props> = ({
         </div>
 
         {/* Card 3: Disetujui */}
-        <div className="bg-white p-4 rounded-2xl border border-blue-200 bg-blue-50/20 shadow-xs">
-          <div className="flex items-center justify-between text-blue-700 mb-2">
+        <div className="bg-white p-4 rounded-2xl border border-sky-200 bg-sky-50/20 shadow-xs">
+          <div className="flex items-center justify-between text-sky-700 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Disetujui</span>
-            <CheckCircle2 className="w-4 h-4 text-blue-500" />
+            <CheckCircle2 className="w-4 h-4 text-sky-500" />
           </div>
-          <p className="text-2xl font-black text-blue-700">
+          <p className="text-2xl font-black text-sky-700">
             {currentUser.role === 'REQUESTER' ? myApprovedCount : approvedCount}
           </p>
-          <span className="text-[11px] text-blue-600 mt-1 block">Disetujui Koordinator HOD/Wakasek</span>
+          <span className="text-[11px] text-sky-600 mt-1 block">Disetujui Koordinator HOD/Wakasek</span>
         </div>
 
         {/* Card 4: Diproses Dapur */}
-        <div className="bg-white p-4 rounded-2xl border border-indigo-200 bg-indigo-50/20 shadow-xs">
-          <div className="flex items-center justify-between text-indigo-700 mb-2">
+        <div className="bg-white p-4 rounded-2xl border border-cyan-200 bg-cyan-50/20 shadow-xs">
+          <div className="flex items-center justify-between text-cyan-700 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider">Diproses</span>
-            <ChefHat className="w-4 h-4 text-indigo-500" />
+            <ChefHat className="w-4 h-4 text-cyan-500" />
           </div>
-          <p className="text-2xl font-black text-indigo-700">
+          <p className="text-2xl font-black text-cyan-700">
             {currentUser.role === 'REQUESTER' ? myProcessingCount : processingCount}
           </p>
-          <span className="text-[11px] text-indigo-600 mt-1 block">Persiapan Masak</span>
+          <span className="text-[11px] text-cyan-600 mt-1 block">Persiapan Masak</span>
         </div>
 
         {/* Card 5: Konsumsi Siap / Selesai */}
@@ -310,7 +310,7 @@ export const DashboardView: React.FC<Props> = ({
                 placeholder="Cari kegiatan/tamu/no..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
               />
             </div>
 
@@ -366,7 +366,7 @@ export const DashboardView: React.FC<Props> = ({
                     <tr key={req.id} className="hover:bg-slate-50/80 transition-colors">
                       {/* Tanggal */}
                       <td className="p-3.5 whitespace-nowrap">
-                        <span className="font-mono text-[11px] font-bold text-blue-700 block">
+                        <span className="font-mono text-[11px] font-bold text-emerald-700 block">
                           {req.request_number}
                         </span>
                         <span className="text-slate-500 text-[11px] flex items-center gap-1 mt-0.5">
@@ -424,7 +424,7 @@ export const DashboardView: React.FC<Props> = ({
                           {/* Detail button */}
                           <button
                             onClick={() => onOpenDetail(req.id)}
-                            className="p-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 transition-colors"
+                            className="p-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 transition-colors"
                             title="Lihat Detail & Timeline"
                           >
                             <Eye className="w-4 h-4" />

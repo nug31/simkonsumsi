@@ -80,7 +80,7 @@ export const WhatsAppHubView: React.FC<Props> = ({ requests, users, departments 
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] font-bold text-blue-700">{r.request_number}</span>
+                    <span className="font-mono text-[11px] font-bold text-emerald-700">{r.request_number}</span>
                     <span className="text-[10px] text-slate-400">{r.consumption_date}</span>
                   </div>
                   <p className="text-xs font-bold truncate mt-0.5">{r.activity_name}</p>

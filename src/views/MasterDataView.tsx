@@ -237,7 +237,7 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
                       <td className="p-3.5 font-semibold text-slate-800">{dept.name}</td>
                       <td className="p-3.5">
                         <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                          dept.type === 'JURUSAN' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'
+                          dept.type === 'JURUSAN' ? 'bg-emerald-100 text-emerald-800' : 'bg-purple-100 text-purple-800'
                         }`}>
                           {dept.type}
                         </span>
@@ -245,7 +245,7 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
                       <td className="p-3.5">
                         {dept.type === 'JURUSAN' ? (
                           <div className="flex items-center gap-1 text-slate-800">
-                            <span className="font-bold text-blue-700">Koordinator HOD:</span>{' '}
+                            <span className="font-bold text-emerald-700">Koordinator HOD:</span>{' '}
                             {hodUser?.name || <span className="text-amber-600 italic">Belum disetel</span>}
                           </div>
                         ) : (
@@ -411,7 +411,7 @@ export const MasterDataView: React.FC<Props> = ({ departments, users }) => {
                     <td className="p-3.5">
                       <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold ${
                         u.role === 'REQUESTER' ? 'bg-emerald-100 text-emerald-800' :
-                        u.role === 'HOD' ? 'bg-blue-100 text-blue-800' :
+                        u.role === 'HOD' ? 'bg-sky-100 text-sky-800' :
                         u.role === 'WAKASEK' ? 'bg-purple-100 text-purple-800' :
                         u.role === 'ADMIN_KONSUMSI' ? 'bg-amber-100 text-amber-800' :
                         'bg-rose-100 text-rose-800'

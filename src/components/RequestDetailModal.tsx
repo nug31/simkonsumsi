@@ -118,7 +118,7 @@ export const RequestDetailModal: React.FC<Props> = ({
         {/* Modal Header */}
         <div className="px-5 py-4 border-b border-slate-200 bg-slate-50/70 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
               <Utensils className="w-5 h-5" />
             </div>
             <div>
@@ -126,7 +126,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                 <h3 className="font-bold text-slate-900 text-base sm:text-lg">
                   Detail Pengajuan Konsumsi
                 </h3>
-                <span className="font-mono text-xs px-2 py-0.5 rounded bg-blue-50 text-blue-800 border border-blue-200 font-bold">
+                <span className="font-mono text-xs px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold">
                   {request.request_number}
                 </span>
               </div>
@@ -160,7 +160,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                   Pemohon
                 </span>
                 <div className="flex items-center gap-2 mt-1">
-                  <div className="w-7 h-7 rounded-full bg-blue-200 text-blue-800 flex items-center justify-center text-xs font-bold">
+                  <div className="w-7 h-7 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center text-xs font-bold">
                     {requester?.name.charAt(0) || 'P'}
                   </div>
                   <div>
@@ -171,7 +171,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                       {department?.name} ({department?.code})
                     </p>
                     {request.campus && (
-                      <p className="text-[11px] text-indigo-600 font-medium mt-0.5">{request.campus}</p>
+                      <p className="text-[11px] text-teal-600 font-medium mt-0.5">{request.campus}</p>
                     )}
                   </div>
                 </div>
@@ -185,7 +185,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                   <p className="text-xs font-semibold text-slate-800">
                     {request.target_approval_type === 'HOD' ? 'Koordinator HOD Jurusan' : 'Wakil Kepala Sekolah'}
                   </p>
-                  <p className="text-xs text-blue-600 font-medium">
+                  <p className="text-xs text-emerald-600 font-medium">
                     {targetApprover?.name || (request.target_approval_type === 'HOD' ? 'Koordinator HOD Jurusan' : 'Wakasek')}
                   </p>
                 </div>
@@ -195,7 +195,7 @@ export const RequestDetailModal: React.FC<Props> = ({
             {/* Activity Details Card */}
             <div className="border border-slate-200 rounded-xl p-4 space-y-3">
               <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
-                <FileText className="w-4 h-4 text-blue-600" />
+                <FileText className="w-4 h-4 text-emerald-600" />
                 Informasi Kegiatan & Narasumber
               </h4>
 
@@ -214,7 +214,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                 </div>
                 <div className="sm:col-span-2">
                   <span className="text-xs text-slate-500">Nama Guru Tamu / Narasumber:</span>
-                  <p className="font-bold text-blue-900 text-base">{request.guest_name}</p>
+                  <p className="font-bold text-emerald-900 text-base">{request.guest_name}</p>
                 </div>
                 {request.location && (
                   <div className="sm:col-span-2">
@@ -253,7 +253,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                 </div>
                 <div>
                   <span className="text-[11px] text-amber-800 font-medium block">Jumlah Paket</span>
-                  <p className="text-xs font-bold text-blue-700 mt-0.5">
+                  <p className="text-xs font-bold text-emerald-700 mt-0.5">
                     {request.quantity} Paket
                   </p>
                 </div>
@@ -273,7 +273,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                 {request.notes && (
                   <div>
                     <span className="text-xs text-slate-500">Catatan Khusus Pemohon:</span>
-                    <p className="text-xs italic text-slate-700 bg-blue-50/50 p-2 rounded-lg border border-blue-100">
+                    <p className="text-xs italic text-slate-700 bg-emerald-50/50 p-2 rounded-lg border border-emerald-100">
                       "{request.notes}"
                     </p>
                   </div>
@@ -330,10 +330,10 @@ export const RequestDetailModal: React.FC<Props> = ({
 
             {/* 2. If Admin Konsumsi Kitchen can act */}
             {canProcessKitchen && onUpdateKitchenStatus && (
-              <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200">
+              <div className="bg-teal-50 rounded-xl p-4 border border-teal-200">
                 <div className="flex items-center gap-2 mb-2">
-                  <ChefHat className="w-4 h-4 text-indigo-700" />
-                  <h4 className="text-xs font-bold text-indigo-900 uppercase tracking-wider">
+                  <ChefHat className="w-4 h-4 text-teal-700" />
+                  <h4 className="text-xs font-bold text-teal-900 uppercase tracking-wider">
                     Tindakan Dapur & Pelayanan Konsumsi
                   </h4>
                 </div>
@@ -341,7 +341,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                   {request.status.startsWith('APPROVED') && (
                     <button
                       onClick={() => onUpdateKitchenStatus('PROCESSING', 'Pesanan konsumsi mulai disiapkan oleh tim dapur.')}
-                      className="px-4 py-2 bg-indigo-600 text-white rounded-xl font-bold text-xs hover:bg-indigo-700 transition-colors shadow-xs flex items-center gap-1.5"
+                      className="px-4 py-2 bg-teal-600 text-white rounded-xl font-bold text-xs hover:bg-teal-700 transition-colors shadow-xs flex items-center gap-1.5"
                     >
                       <ChefHat className="w-4 h-4" />
                       Mulai Memasak / Menyiapkan
@@ -395,7 +395,7 @@ export const RequestDetailModal: React.FC<Props> = ({
           <div className="space-y-4">
             <div className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
               <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-blue-600" />
+                <Clock className="w-4 h-4 text-emerald-600" />
                 Timeline Persetujuan & Dapur
               </h4>
 
@@ -480,7 +480,7 @@ export const RequestDetailModal: React.FC<Props> = ({
                 <div className="relative">
                   <div className={`absolute -left-6 top-0.5 w-5 h-5 rounded-full flex items-center justify-center ring-4 ring-white ${
                     ['PROCESSING', 'READY', 'COMPLETED'].includes(request.status)
-                      ? 'bg-indigo-600 text-white'
+                      ? 'bg-teal-600 text-white'
                       : 'bg-slate-200 text-slate-400'
                   }`}>
                     <ChefHat className="w-3 h-3" />

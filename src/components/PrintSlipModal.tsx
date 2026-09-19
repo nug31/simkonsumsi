@@ -46,7 +46,7 @@ export const PrintSlipModal: React.FC<Props> = ({
         {/* Modal Controls (Hidden in Print) */}
         <div className="px-5 py-3.5 bg-slate-800 text-white flex items-center justify-between no-print">
           <div className="flex items-center gap-2">
-            <Printer className="w-5 h-5 text-blue-400" />
+            <Printer className="w-5 h-5 text-emerald-400" />
             <h3 className="font-bold text-sm">
               {isSingle ? 'Cetak Lembar Pesanan Konsumsi' : 'Cetak Rekapitulasi Dapur Konsumsi'}
             </h3>
@@ -54,7 +54,7 @@ export const PrintSlipModal: React.FC<Props> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-xs transition-colors"
+              className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-xs transition-colors"
             >
               <Printer className="w-4 h-4" />
               Cetak Sekarang

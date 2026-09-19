@@ -72,7 +72,7 @@ export const Navbar: React.FC<Props> = ({
               </button>
             )}
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-600 flex items-center justify-center text-white shadow-md shadow-emerald-500/20">
                 <UtensilsCrossed className="w-5 h-5" />
               </div>
               <div>
@@ -91,7 +91,7 @@ export const Navbar: React.FC<Props> = ({
             {onOpenLoginModal && (
               <button
                 onClick={onOpenLoginModal}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition-all shadow-md shadow-blue-600/20"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-700 hover:to-teal-700 transition-all shadow-md shadow-emerald-600/20"
                 title="Ganti Akun (butuh PIN)"
               >
                 <UserCheck className="w-4 h-4 text-white" />
@@ -118,7 +118,7 @@ export const Navbar: React.FC<Props> = ({
                 <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 py-2 z-50 animate-in fade-in zoom-in-95 duration-100">
                   <div className="px-4 py-2.5 border-b border-slate-100 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Bell className="w-4 h-4 text-blue-600" />
+                      <Bell className="w-4 h-4 text-emerald-600" />
                       <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">Notifikasi Internal</h4>
                       {unreadCount > 0 && (
                         <span className="bg-rose-100 text-rose-700 text-[10px] px-1.5 py-0.5 rounded-full font-bold">
@@ -129,7 +129,7 @@ export const Navbar: React.FC<Props> = ({
                     {unreadCount > 0 && (
                       <button
                         onClick={() => onMarkAllNotificationsRead()}
-                        className="text-[11px] text-blue-600 hover:text-blue-700 hover:underline font-medium"
+                        className="text-[11px] text-emerald-600 hover:text-emerald-700 hover:underline font-medium"
                       >
                         Tandai Semua Dibaca
                       </button>
@@ -153,12 +153,12 @@ export const Navbar: React.FC<Props> = ({
                             }
                           }}
                           className={`p-3 text-left hover:bg-slate-50 transition-colors cursor-pointer flex items-start gap-3 ${
-                            !notif.is_read ? 'bg-blue-50/40' : ''
+                            !notif.is_read ? 'bg-emerald-50/40' : ''
                           }`}
                         >
                           <div className="mt-0.5">
                             {notif.type === 'SUCCESS' && <Check className="w-4 h-4 text-emerald-500" />}
-                            {notif.type === 'INFO' && <Clock className="w-4 h-4 text-blue-500" />}
+                            {notif.type === 'INFO' && <Clock className="w-4 h-4 text-emerald-500" />}
                             {notif.type === 'WARNING' && <AlertCircle className="w-4 h-4 text-amber-500" />}
                             {notif.type === 'DANGER' && <AlertCircle className="w-4 h-4 text-rose-500" />}
                           </div>
@@ -174,7 +174,7 @@ export const Navbar: React.FC<Props> = ({
                             </p>
                           </div>
                           {!notif.is_read && (
-                            <span className="w-2 h-2 rounded-full bg-blue-600 mt-1 shrink-0" />
+                            <span className="w-2 h-2 rounded-full bg-emerald-600 mt-1 shrink-0" />
                           )}
                         </div>
                       ))

@@ -100,10 +100,10 @@ export const ApprovalListView: React.FC<Props> = ({
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-              <CheckSquare className="w-6 h-6 text-blue-600" />
+              <CheckSquare className="w-6 h-6 text-emerald-600" />
               Persetujuan Konsumsi ({currentUser.role === 'WAKASEK' ? 'Wakasek' : 'Koordinator HOD'})
             </h2>
-            <span className="text-xs px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800 font-bold border border-blue-200">
+            <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">
               {currentUser.role === 'WAKASEK' ? 'Unit Non-Jurusan' : `Jurusan ${currentDept?.code || ''}`}
             </span>
           </div>
@@ -119,7 +119,7 @@ export const ApprovalListView: React.FC<Props> = ({
           <button
             onClick={() => setFilterTab('PENDING')}
             className={`text-xs px-3.5 py-1.5 rounded-lg font-bold transition-all ${
-              filterTab === 'PENDING' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+              filterTab === 'PENDING' ? 'bg-white text-emerald-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Menunggu Approval ({pendingRequests.length})
@@ -127,7 +127,7 @@ export const ApprovalListView: React.FC<Props> = ({
           <button
             onClick={() => setFilterTab('HISTORY')}
             className={`text-xs px-3.5 py-1.5 rounded-lg font-bold transition-all ${
-              filterTab === 'HISTORY' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+              filterTab === 'HISTORY' ? 'bg-white text-emerald-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             Semua Riwayat ({eligibleRequests.length})
@@ -146,13 +146,13 @@ export const ApprovalListView: React.FC<Props> = ({
           <span className="text-[11px] text-amber-600 mt-1 block">Perlu Tindakan Anda Segera</span>
         </div>
 
-        <div className="bg-white p-4 rounded-2xl border border-blue-200 bg-blue-50/20 shadow-xs">
-          <div className="flex items-center justify-between text-blue-600 mb-1">
+        <div className="bg-white p-4 rounded-2xl border border-sky-200 bg-sky-50/20 shadow-xs">
+          <div className="flex items-center justify-between text-sky-600 mb-1">
             <span className="text-xs font-semibold uppercase tracking-wider">Disetujui</span>
-            <CheckCircle2 className="w-4 h-4 text-blue-500" />
+            <CheckCircle2 className="w-4 h-4 text-sky-500" />
           </div>
-          <p className="text-2xl font-black text-blue-700">{approvedList.length}</p>
-          <span className="text-[11px] text-blue-600 mt-1 block">Diteruskan ke Dapur</span>
+          <p className="text-2xl font-black text-sky-700">{approvedList.length}</p>
+          <span className="text-[11px] text-sky-600 mt-1 block">Diteruskan ke Dapur</span>
         </div>
 
         <div className="bg-white p-4 rounded-2xl border border-orange-200 bg-orange-50/20 shadow-xs">
@@ -193,7 +193,7 @@ export const ApprovalListView: React.FC<Props> = ({
               placeholder="Cari pengajuan..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+              className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
             />
           </div>
         </div>
@@ -229,7 +229,7 @@ export const ApprovalListView: React.FC<Props> = ({
                     <tr key={req.id} className={`hover:bg-slate-50/80 transition-colors ${isPending ? 'bg-amber-50/20' : ''}`}>
                       {/* Tanggal Pengajuan */}
                       <td className="p-3.5 whitespace-nowrap">
-                        <span className="font-mono text-[11px] font-bold text-blue-700 block">
+                        <span className="font-mono text-[11px] font-bold text-emerald-700 block">
                           {req.request_number}
                         </span>
                         <span className="text-[10px] text-slate-400">
@@ -270,14 +270,14 @@ export const ApprovalListView: React.FC<Props> = ({
                         <p className="font-semibold text-slate-800">
                           {new Date(req.consumption_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}
                         </p>
-                        <span className="text-[11px] text-blue-600 font-bold">
+                        <span className="text-[11px] text-emerald-600 font-bold">
                           {req.consumption_time} WIB
                         </span>
                       </td>
 
                       {/* Jumlah */}
                       <td className="p-3.5 text-center whitespace-nowrap">
-                        <span className="font-extrabold text-blue-700 block text-sm">
+                        <span className="font-extrabold text-emerald-700 block text-sm">
                           {req.quantity} Paket
                         </span>
                         <span className="text-[10px] text-slate-400">

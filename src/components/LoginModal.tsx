@@ -84,7 +84,7 @@ export const LoginModal: React.FC<Props> = ({
       <div className="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col">
         
         {/* Header */}
-        <div className="px-6 py-5 bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white flex items-center justify-between">
+        <div className="px-6 py-5 bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-800 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-xs">
               <UtensilsCrossed className="w-5 h-5 text-white" />
@@ -93,7 +93,7 @@ export const LoginModal: React.FC<Props> = ({
               <h3 className="font-extrabold text-base tracking-tight">
                 Portal SIMKONSUMSI
               </h3>
-              <p className="text-[11px] text-blue-100">
+              <p className="text-[11px] text-emerald-100">
                 Pilih Nama Guru & Masukkan PIN Singkat
               </p>
             </div>
@@ -134,7 +134,7 @@ export const LoginModal: React.FC<Props> = ({
                   placeholder="Ketik nama guru, jabatan, atau jurusan..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full text-xs pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+                  className="w-full text-xs pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
                   autoFocus
                 />
               </div>
@@ -151,8 +151,8 @@ export const LoginModal: React.FC<Props> = ({
                       onClick={() => handleSelectUser(u)}
                       className={`w-full text-left p-3 rounded-2xl border transition-all flex items-center justify-between group ${
                         isCurrent 
-                          ? 'bg-blue-50/70 border-blue-300 hover:border-blue-400' 
-                          : 'bg-white border-slate-200 hover:border-blue-300 hover:bg-slate-50/70 shadow-xs'
+                          ? 'bg-emerald-50/70 border-emerald-300 hover:border-emerald-400' 
+                          : 'bg-white border-slate-200 hover:border-emerald-300 hover:bg-slate-50/70 shadow-xs'
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -162,7 +162,7 @@ export const LoginModal: React.FC<Props> = ({
                           className="w-10 h-10 rounded-xl object-cover border border-slate-200"
                         />
                         <div>
-                          <p className="text-xs font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
+                          <p className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                             {u.name}
                           </p>
                           <p className="text-[11px] text-slate-500 leading-tight">
@@ -178,14 +178,14 @@ export const LoginModal: React.FC<Props> = ({
                       <div className="text-right flex flex-col items-end gap-1">
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                           u.role === 'REQUESTER' ? 'bg-emerald-100 text-emerald-800' :
-                          u.role === 'HOD' ? 'bg-blue-100 text-blue-800' :
+                          u.role === 'HOD' ? 'bg-sky-100 text-sky-800' :
                           u.role === 'WAKASEK' ? 'bg-purple-100 text-purple-800' :
                           u.role === 'ADMIN_KONSUMSI' ? 'bg-amber-100 text-amber-800' :
                           'bg-rose-100 text-rose-800'
                         }`}>
                           {u.role}
                         </span>
-                        <span className="text-[10px] text-blue-600 font-semibold group-hover:underline">
+                        <span className="text-[10px] text-emerald-600 font-semibold group-hover:underline">
                           Pilih & Masuk →
                         </span>
                       </div>
@@ -203,7 +203,7 @@ export const LoginModal: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedUser(null)}
-                  className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1 font-semibold"
+                  className="text-xs text-emerald-600 hover:text-emerald-800 flex items-center gap-1 font-semibold"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   Ganti Guru Lain
@@ -217,7 +217,7 @@ export const LoginModal: React.FC<Props> = ({
                 <img
                   src={selectedUser.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedUser.name)}`}
                   alt={selectedUser.name}
-                  className="w-16 h-16 rounded-2xl mx-auto object-cover border-2 border-blue-500 shadow-md"
+                  className="w-16 h-16 rounded-2xl mx-auto object-cover border-2 border-emerald-500 shadow-md"
                 />
                 <h3 className="text-base font-extrabold text-slate-900 pt-1">
                   {selectedUser.name}
@@ -238,7 +238,7 @@ export const LoginModal: React.FC<Props> = ({
                       key={idx}
                       className={`w-11 h-12 rounded-xl border-2 flex items-center justify-center text-lg font-black transition-all ${
                         pin.length > idx
-                          ? 'border-blue-600 bg-blue-50 text-blue-800 shadow-xs'
+                          ? 'border-emerald-600 bg-emerald-50 text-emerald-800 shadow-xs'
                           : 'border-slate-300 bg-slate-50 text-transparent'
                       }`}
                     >
@@ -264,7 +264,7 @@ export const LoginModal: React.FC<Props> = ({
                     key={num}
                     type="button"
                     onClick={() => handleKeyPress(num)}
-                    className="h-12 rounded-2xl bg-slate-50 hover:bg-blue-50 hover:text-blue-700 text-slate-800 text-lg font-bold border border-slate-200 transition-all active:scale-95 shadow-xs"
+                    className="h-12 rounded-2xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-700 text-slate-800 text-lg font-bold border border-slate-200 transition-all active:scale-95 shadow-xs"
                   >
                     {num}
                   </button>
@@ -279,7 +279,7 @@ export const LoginModal: React.FC<Props> = ({
                 <button
                   type="button"
                   onClick={() => handleKeyPress('0')}
-                  className="h-12 rounded-2xl bg-slate-50 hover:bg-blue-50 hover:text-blue-700 text-slate-800 text-lg font-bold border border-slate-200 transition-all active:scale-95 shadow-xs"
+                  className="h-12 rounded-2xl bg-slate-50 hover:bg-emerald-50 hover:text-emerald-700 text-slate-800 text-lg font-bold border border-slate-200 transition-all active:scale-95 shadow-xs"
                 >
                   0
                 </button>
@@ -300,7 +300,7 @@ export const LoginModal: React.FC<Props> = ({
         {/* Footer info */}
         <div className="px-6 py-3 border-t border-slate-100 bg-slate-50 flex items-center justify-between text-[11px] text-slate-500">
           <span>SIMKONSUMSI - Keamanan & Akuntabilitas Sekolah</span>
-          <span className="font-semibold text-blue-600">SMK Mitra Industri</span>
+          <span className="font-semibold text-emerald-600">SMK Mitra Industri</span>
         </div>
 
       </div>

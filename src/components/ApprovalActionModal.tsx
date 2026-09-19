@@ -86,7 +86,7 @@ export const ApprovalActionModal: React.FC<Props> = ({
           {/* Description banner */}
           {isApprove && (
             <p className="text-xs text-slate-600 leading-relaxed">
-              Dengan menyetujui, status pengajuan akan berubah menjadi <strong className="text-blue-700">APPROVED</strong> dan diteruskan ke Dapur Konsumsi untuk segera diproses.
+              Dengan menyetujui, status pengajuan akan berubah menjadi <strong className="text-emerald-700">APPROVED</strong> dan diteruskan ke Dapur Konsumsi untuk segera diproses.
             </p>
           )}
 
@@ -127,7 +127,7 @@ export const ApprovalActionModal: React.FC<Props> = ({
                   ? 'Contoh: Mohon rincikan menu snack dan lampirkan surat tugas...'
                   : 'Contoh: Anggaran konsumsi untuk kegiatan internal ini belum dialokasikan...'
               }
-              className="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full text-xs p-3 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
               autoFocus
             />
             {error && <p className="text-xs text-rose-600 font-medium">{error}</p>}

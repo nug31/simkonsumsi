@@ -40,7 +40,7 @@ export const AuditLogsView: React.FC<Props> = ({ logs, onOpenRequest }) => {
             placeholder="Cari aktivitas/user/aksi..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+            className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
           />
         </div>
       </div>
@@ -81,7 +81,7 @@ export const AuditLogsView: React.FC<Props> = ({ logs, onOpenRequest }) => {
                     <td className="p-3.5 font-sans text-xs text-slate-800">
                       {log.description}
                     </td>
-                    <td className="p-3.5 text-right whitespace-nowrap font-bold text-blue-700">
+                    <td className="p-3.5 text-right whitespace-nowrap font-bold text-emerald-700">
                       {log.request_id ? (
                         <button
                           onClick={() => onOpenRequest && onOpenRequest(log.request_id!)}

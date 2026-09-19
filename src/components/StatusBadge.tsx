@@ -50,24 +50,24 @@ export const StatusBadge: React.FC<Props> = ({ status, size = 'md' }) => {
 
     case 'APPROVED_HOD':
       return (
-        <span className={`inline-flex items-center rounded-full bg-blue-50 text-blue-700 border border-blue-300 ${sizeClasses}`}>
-          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+        <span className={`inline-flex items-center rounded-full bg-sky-50 text-sky-700 border border-sky-300 ${sizeClasses}`}>
+          <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
           Disetujui Koordinator HOD
         </span>
       );
 
     case 'APPROVED_WAKASEK':
       return (
-        <span className={`inline-flex items-center rounded-full bg-blue-50 text-blue-700 border border-blue-300 ${sizeClasses}`}>
-          <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+        <span className={`inline-flex items-center rounded-full bg-sky-50 text-sky-700 border border-sky-300 ${sizeClasses}`}>
+          <CheckCircle2 className="w-3.5 h-3.5 text-sky-600" />
           Disetujui Wakasek
         </span>
       );
 
     case 'PROCESSING':
       return (
-        <span className={`inline-flex items-center rounded-full bg-indigo-50 text-indigo-700 border border-indigo-300 ${sizeClasses}`}>
-          <ChefHat className="w-3.5 h-3.5 text-indigo-600" />
+        <span className={`inline-flex items-center rounded-full bg-cyan-50 text-cyan-700 border border-cyan-300 ${sizeClasses}`}>
+          <ChefHat className="w-3.5 h-3.5 text-cyan-600" />
           Diproses Dapur
         </span>
       );

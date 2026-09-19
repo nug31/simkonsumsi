@@ -102,7 +102,7 @@ export const Sidebar: React.FC<Props> = ({
       icon: ChefHat,
       visible: canViewKitchen,
       badge: kitchenQueueCount > 0 ? kitchenQueueCount : undefined,
-      badgeColor: 'bg-indigo-600 text-white',
+      badgeColor: 'bg-teal-600 text-white',
     },
     {
       id: 'rekap' as NavTab,
@@ -153,7 +153,7 @@ export const Sidebar: React.FC<Props> = ({
         {/* Mobile Header with close button */}
         <div className="flex items-center justify-between p-4 border-b border-slate-800 md:hidden">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-blue-400" />
+            <Sparkles className="w-5 h-5 text-emerald-400" />
             <span className="font-bold text-sm tracking-wide">Navigasi Menu</span>
           </div>
           <button
@@ -183,7 +183,7 @@ export const Sidebar: React.FC<Props> = ({
                   onClick={() => handleItemClick(item.id)}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium transition-all group ${
                     isActive
-                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/30'
+                      ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30'
                       : item.highlight
                       ? 'bg-slate-800 text-emerald-300 hover:bg-slate-700 hover:text-emerald-200 border border-emerald-500/20'
                       : 'text-slate-300 hover:bg-slate-800 hover:text-white'
@@ -204,7 +204,7 @@ export const Sidebar: React.FC<Props> = ({
                   {item.badge !== undefined && (
                     <span
                       className={`text-xs px-2 py-0.5 rounded-full font-bold shadow-xs ${
-                        item.badgeColor || 'bg-blue-500 text-white'
+                        item.badgeColor || 'bg-emerald-500 text-white'
                       }`}
                     >
                       {item.badge}
@@ -219,11 +219,11 @@ export const Sidebar: React.FC<Props> = ({
         <div className="p-3 border-t border-slate-800 bg-slate-950/60">
           <div className="bg-slate-900/90 rounded-xl p-3 border border-slate-800">
             <div className="flex items-center gap-2 mb-1.5">
-              <Info className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+              <Info className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <p className="text-[11px] font-semibold text-slate-200">Logika Approval Otomatis</p>
             </div>
             <p className="text-[10px] text-slate-400 leading-relaxed">
-              <strong className="text-blue-300">Jurusan</strong> → Koordinator HOD Jurusan → Admin Konsumsi<br />
+              <strong className="text-emerald-300">Jurusan</strong> → Koordinator HOD Jurusan → Admin Konsumsi<br />
               <strong className="text-purple-300">Non-Jurusan</strong> → Wakasek → Admin Konsumsi
             </p>
           </div>

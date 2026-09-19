@@ -105,7 +105,7 @@ export const KitchenAdminView: React.FC<Props> = ({
       {/* Top Banner */}
       <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
+          <div className="w-12 h-12 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold">
             <ChefHat className="w-6 h-6" />
           </div>
           <div>
@@ -124,7 +124,7 @@ export const KitchenAdminView: React.FC<Props> = ({
             onClick={() => onOpenPrintModal(filteredRequests)}
             className="px-4 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold flex items-center gap-2 shadow-xs transition-colors"
           >
-            <Printer className="w-4 h-4 text-blue-400" />
+            <Printer className="w-4 h-4 text-emerald-400" />
             Print Daftar Konsumsi ({filteredRequests.length})
           </button>
         </div>
@@ -134,23 +134,23 @@ export const KitchenAdminView: React.FC<Props> = ({
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         
         {/* Stage 1: Disetujui (Approved) */}
-        <div className="bg-white p-4 rounded-2xl border border-blue-200 bg-blue-50/20 shadow-xs">
-          <div className="flex items-center justify-between text-blue-700 mb-1">
+        <div className="bg-white p-4 rounded-2xl border border-sky-200 bg-sky-50/20 shadow-xs">
+          <div className="flex items-center justify-between text-sky-700 mb-1">
             <span className="text-xs font-bold uppercase tracking-wider">Approved (Antre)</span>
-            <Clock className="w-4 h-4 text-blue-500" />
+            <Clock className="w-4 h-4 text-sky-500" />
           </div>
-          <p className="text-2xl font-black text-blue-800">{approvedQueue.length}</p>
-          <span className="text-[11px] text-blue-600 mt-1 block">Menunggu Dapur Mulai</span>
+          <p className="text-2xl font-black text-sky-800">{approvedQueue.length}</p>
+          <span className="text-[11px] text-sky-600 mt-1 block">Menunggu Dapur Mulai</span>
         </div>
 
         {/* Stage 2: Sedang Diproses (Cooking) */}
-        <div className="bg-white p-4 rounded-2xl border border-indigo-200 bg-indigo-50/20 shadow-xs">
-          <div className="flex items-center justify-between text-indigo-700 mb-1">
+        <div className="bg-white p-4 rounded-2xl border border-cyan-200 bg-cyan-50/20 shadow-xs">
+          <div className="flex items-center justify-between text-cyan-700 mb-1">
             <span className="text-xs font-bold uppercase tracking-wider">Sedang Diproses</span>
-            <ChefHat className="w-4 h-4 text-indigo-500 animate-pulse" />
+            <ChefHat className="w-4 h-4 text-cyan-500 animate-pulse" />
           </div>
-          <p className="text-2xl font-black text-indigo-800">{cookingQueue.length}</p>
-          <span className="text-[11px] text-indigo-600 mt-1 block">Proses Masak / Packing</span>
+          <p className="text-2xl font-black text-cyan-800">{cookingQueue.length}</p>
+          <span className="text-[11px] text-cyan-600 mt-1 block">Proses Masak / Packing</span>
         </div>
 
         {/* Stage 3: Konsumsi Siap (Ready) */}
@@ -184,7 +184,7 @@ export const KitchenAdminView: React.FC<Props> = ({
             <button
               onClick={() => setTimeFilter('ALL')}
               className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-all ${
-                timeFilter === 'ALL' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                timeFilter === 'ALL' ? 'bg-white text-emerald-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Semua Waktu
@@ -192,7 +192,7 @@ export const KitchenAdminView: React.FC<Props> = ({
             <button
               onClick={() => setTimeFilter('TODAY')}
               className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-all ${
-                timeFilter === 'TODAY' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                timeFilter === 'TODAY' ? 'bg-white text-emerald-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Hari Ini
@@ -200,7 +200,7 @@ export const KitchenAdminView: React.FC<Props> = ({
             <button
               onClick={() => setTimeFilter('TOMORROW')}
               className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-all ${
-                timeFilter === 'TOMORROW' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                timeFilter === 'TOMORROW' ? 'bg-white text-emerald-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Besok
@@ -208,7 +208,7 @@ export const KitchenAdminView: React.FC<Props> = ({
             <button
               onClick={() => setTimeFilter('THIS_MONTH')}
               className={`text-xs px-3 py-1.5 rounded-lg font-bold transition-all ${
-                timeFilter === 'THIS_MONTH' ? 'bg-white text-blue-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
+                timeFilter === 'THIS_MONTH' ? 'bg-white text-emerald-700 shadow-xs' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Bulan Ini
@@ -223,7 +223,7 @@ export const KitchenAdminView: React.FC<Props> = ({
               placeholder="Cari pesanan..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+              className="text-xs pl-8 pr-3 py-1.5 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-emerald-500"
             />
           </div>
 
@@ -263,7 +263,7 @@ export const KitchenAdminView: React.FC<Props> = ({
           </div>
 
           <div className="ml-auto text-slate-500 font-medium">
-            Total Kebutuhan: <strong className="text-blue-700 font-bold">{totalPackagesInView} Paket</strong>
+            Total Kebutuhan: <strong className="text-emerald-700 font-bold">{totalPackagesInView} Paket</strong>
           </div>
 
         </div>
@@ -304,15 +304,15 @@ export const KitchenAdminView: React.FC<Props> = ({
                         <span className="font-bold text-slate-800 block">
                           {new Date(req.consumption_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
                         </span>
-                        <span className="font-mono text-[10px] text-blue-700 block">
+                        <span className="font-mono text-[10px] text-emerald-700 block">
                           {req.request_number}
                         </span>
                       </td>
 
                       {/* Jam Saji */}
                       <td className="p-3.5 whitespace-nowrap">
-                        <span className="inline-flex items-center gap-1 font-extrabold text-blue-800 text-xs px-2 py-0.5 rounded bg-blue-50 border border-blue-200">
-                          <Clock className="w-3 h-3 text-blue-600" />
+                        <span className="inline-flex items-center gap-1 font-extrabold text-emerald-800 text-xs px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200">
+                          <Clock className="w-3 h-3 text-emerald-600" />
                           {req.consumption_time} WIB
                         </span>
                       </td>
@@ -361,7 +361,7 @@ export const KitchenAdminView: React.FC<Props> = ({
 
                       {/* Jumlah */}
                       <td className="p-3.5 text-center whitespace-nowrap">
-                        <span className="font-black text-blue-700 text-sm block">
+                        <span className="font-black text-emerald-700 text-sm block">
                           {req.quantity} Paket
                         </span>
                         <span className="text-[10px] text-slate-400">
@@ -381,7 +381,7 @@ export const KitchenAdminView: React.FC<Props> = ({
                           {req.status.startsWith('APPROVED') && (
                             <button
                               onClick={() => onUpdateStatus(req.id, 'PROCESSING', 'Mulai dimasak dan disiapkan')}
-                              className="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow-xs transition-colors"
+                              className="px-2.5 py-1.5 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-bold flex items-center gap-1 shadow-xs transition-colors"
                               title="Mulai Masak / Siapkan"
                             >
                               <ChefHat className="w-3.5 h-3.5" />

@@ -130,7 +130,7 @@ export const RekapReportView: React.FC<Props> = ({
       <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            <BarChart3 className="w-6 h-6 text-blue-600" />
+            <BarChart3 className="w-6 h-6 text-emerald-600" />
             Rekapitulasi & Laporan Konsumsi
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -152,7 +152,7 @@ export const RekapReportView: React.FC<Props> = ({
             onClick={() => onOpenPrintModal(filteredList)}
             className="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
           >
-            <Printer className="w-4 h-4 text-blue-400" />
+            <Printer className="w-4 h-4 text-emerald-400" />
             Cetak Rekap Laporan
           </button>
         </div>
@@ -162,13 +162,13 @@ export const RekapReportView: React.FC<Props> = ({
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         
         {/* Card 1: Total Pengajuan */}
-        <div className="bg-white p-4 rounded-2xl border border-blue-200 bg-blue-50/20 shadow-xs">
-          <div className="flex items-center justify-between text-blue-700 mb-1">
+        <div className="bg-white p-4 rounded-2xl border border-sky-200 bg-sky-50/20 shadow-xs">
+          <div className="flex items-center justify-between text-sky-700 mb-1">
             <span className="text-xs font-bold uppercase tracking-wider">Total Pengajuan</span>
-            <FileText className="w-4 h-4 text-blue-500" />
+            <FileText className="w-4 h-4 text-sky-500" />
           </div>
-          <p className="text-2xl font-black text-blue-800">{totalPengajuan}</p>
-          <span className="text-[11px] text-blue-600 mt-1 block">Kegiatan Terekam</span>
+          <p className="text-2xl font-black text-sky-800">{totalPengajuan}</p>
+          <span className="text-[11px] text-sky-600 mt-1 block">Kegiatan Terekam</span>
         </div>
 
         {/* Card 2: Total Orang */}
@@ -208,7 +208,7 @@ export const RekapReportView: React.FC<Props> = ({
       {/* Filter Matrix (Requirement 18: Tanggal, Department, Jenis Kegiatan, Jenis Konsumsi, Status) */}
       <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-3">
         <div className="flex items-center gap-2 text-xs font-bold text-slate-800 uppercase tracking-wider">
-          <Filter className="w-4 h-4 text-blue-600" />
+          <Filter className="w-4 h-4 text-emerald-600" />
           Filter Rekapitulasi Data
         </div>
 
@@ -322,7 +322,7 @@ export const RekapReportView: React.FC<Props> = ({
                 setConsumptionFilter('ALL');
                 setStatusFilter('ALL');
               }}
-              className="text-xs text-blue-600 hover:underline font-semibold"
+              className="text-xs text-emerald-600 hover:underline font-semibold"
             >
               Reset Semua Filter
             </button>
@@ -360,7 +360,7 @@ export const RekapReportView: React.FC<Props> = ({
                     onClick={() => onOpenDetail(req.id)}
                     className="hover:bg-slate-50 cursor-pointer transition-colors"
                   >
-                    <td className="p-3.5 whitespace-nowrap font-mono font-bold text-blue-700">
+                    <td className="p-3.5 whitespace-nowrap font-mono font-bold text-emerald-700">
                       {req.request_number}
                     </td>
 
@@ -392,7 +392,7 @@ export const RekapReportView: React.FC<Props> = ({
                     </td>
 
                     <td className="p-3.5 text-center whitespace-nowrap">
-                      <span className="font-bold text-blue-700 block">{req.quantity} Paket</span>
+                      <span className="font-bold text-emerald-700 block">{req.quantity} Paket</span>
                       <span className="text-[10px] text-slate-400">{req.guest_count} Tamu</span>
                     </td>
 
@@ -412,7 +412,7 @@ export const RekapReportView: React.FC<Props> = ({
               <tfoot className="bg-slate-100 font-bold text-slate-900 border-t border-slate-200">
                 <tr>
                   <td colSpan={5} className="p-3.5 text-right uppercase text-xs">Total Agregat:</td>
-                  <td className="p-3.5 text-center text-blue-800 font-black">{totalPaket} Paket</td>
+                  <td className="p-3.5 text-center text-emerald-800 font-black">{totalPaket} Paket</td>
                   <td className="p-3.5 text-right font-mono font-black text-amber-800">Rp {totalBudget.toLocaleString('id-ID')}</td>
                   <td></td>
                 </tr>

@@ -351,6 +351,7 @@ class SupabaseDataService {
 
   // 1. Create Request
   public async createRequest(params: {
+    campus?: string;
     activity_type: ConsumptionRequest['activity_type'];
     activity_name: string;
     guest_name: string;
@@ -382,6 +383,7 @@ class SupabaseDataService {
       .insert({
         requester_id: user.id,
         department_id: user.department_id,
+        campus: params.campus,
         activity_type: params.activity_type,
         activity_name: params.activity_name,
         guest_name: params.guest_name,

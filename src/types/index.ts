@@ -74,6 +74,7 @@ export interface ConsumptionRequest {
   request_number: string; // e.g. KNS-20260914-001
   requester_id: string;
   department_id: string;
+  campus?: string;
   activity_type: ActivityType;
   activity_name: string;
   guest_name: string;

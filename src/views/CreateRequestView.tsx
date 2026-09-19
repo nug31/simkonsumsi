@@ -27,6 +27,8 @@ import {
   FileCheck
 } from 'lucide-react';
 
+const CAMPUS_OPTIONS = ['SMK Mitra Industri 03', 'SMK Mitra Industri 02 Pati'];
+
 interface Props {
   currentUser: User;
   departments: Department[];
@@ -51,6 +53,9 @@ export const CreateRequestView: React.FC<Props> = ({
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(1);
 
   // Form states
+  const [campus, setCampus] = useState(
+    editRequest?.campus || CAMPUS_OPTIONS[0]
+  );
   const [activityType, setActivityType] = useState<ActivityType>(
     editRequest?.activity_type || 'Guru Tamu'
   );
@@ -151,6 +156,7 @@ export const CreateRequestView: React.FC<Props> = ({
         req = await storageService.updateRequest(
           editRequest.id,
           {
+            campus,
             activity_type: activityType,
             activity_name: activityName,
             guest_name: guestName,
@@ -168,6 +174,7 @@ export const CreateRequestView: React.FC<Props> = ({
         );
       } else {
         req = await storageService.createRequest({
+          campus,
           activity_type: activityType,
           activity_name: activityName,
           guest_name: guestName,
@@ -328,10 +335,26 @@ export const CreateRequestView: React.FC<Props> = ({
           </div>
 
           <div className="space-y-4">
+            {/* Kampus */}
+            <div>
+              <label className="block text-xs font-bold text-slate-700 mb-1">
+                3. Kampus <span className="text-rose-500">*</span>
+              </label>
+              <select
+                value={campus}
+                onChange={(e) => setCampus(e.target.value)}
+                className="w-full text-sm p-3 rounded-xl border border-slate-300 bg-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              >
+                {CAMPUS_OPTIONS.map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+            </div>
+
             {/* Jenis Kegiatan */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                3. Jenis Kegiatan <span className="text-rose-500">*</span>
+                4. Jenis Kegiatan <span className="text-rose-500">*</span>
               </label>
               <select
                 value={activityType}
@@ -354,7 +377,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Nama Kegiatan */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                4. Nama Kegiatan <span className="text-rose-500">*</span>
+                5. Nama Kegiatan <span className="text-rose-500">*</span>
               </label>
               <input
                 type="text"
@@ -371,7 +394,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Nama Tamu / Narasumber */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                5. Nama Guru Tamu / Trainer / Narasumber / Penerima <span className="text-rose-500">*</span>
+                6. Nama Guru Tamu / Trainer / Narasumber / Penerima <span className="text-rose-500">*</span>
               </label>
               <input
                 type="text"
@@ -422,7 +445,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Tanggal Konsumsi */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                6. Tanggal Konsumsi <span className="text-rose-500">*</span>
+                7. Tanggal Konsumsi <span className="text-rose-500">*</span>
               </label>
               <div className="relative">
                 <input
@@ -440,7 +463,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Jam Konsumsi */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                7. Jam Konsumsi Disajikan <span className="text-rose-500">*</span>
+                8. Jam Konsumsi Disajikan <span className="text-rose-500">*</span>
               </label>
               <input
                 type="time"
@@ -456,7 +479,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Jumlah Orang */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                8. Jumlah Orang (Tamu/Peserta) <span className="text-rose-500">*</span>
+                9. Jumlah Orang (Tamu/Peserta) <span className="text-rose-500">*</span>
               </label>
               <input
                 type="number"
@@ -477,7 +500,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Jenis Konsumsi */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                9. Jenis Konsumsi <span className="text-rose-500">*</span>
+                10. Jenis Konsumsi <span className="text-rose-500">*</span>
               </label>
               <select
                 value={consumptionType}
@@ -495,7 +518,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Lokasi / Ruang */}
             <div className="sm:col-span-2">
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                10. Lokasi / Ruang Pelaksanaan <span className="text-slate-400 font-normal">(Opsional)</span>
+                11. Lokasi / Ruang Pelaksanaan <span className="text-slate-400 font-normal">(Opsional)</span>
               </label>
               <input
                 type="text"
@@ -510,7 +533,7 @@ export const CreateRequestView: React.FC<Props> = ({
           {/* Detail Konsumsi */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
-              11. Detail Konsumsi (Rincian Menu) <span className="text-slate-400 font-normal">(Opsional)</span>
+              12. Detail Konsumsi (Rincian Menu) <span className="text-slate-400 font-normal">(Opsional)</span>
             </label>
             <textarea
               rows={3}
@@ -528,7 +551,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Jumlah Paket */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                12. Jumlah Paket Konsumsi <span className="text-rose-500">*</span>
+                13. Jumlah Paket Konsumsi <span className="text-rose-500">*</span>
               </label>
               <input
                 type="number"
@@ -545,7 +568,7 @@ export const CreateRequestView: React.FC<Props> = ({
             {/* Estimasi Budget */}
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">
-                14. Estimasi Budget (Opsional, Rp)
+                15. Estimasi Budget (Opsional, Rp)
               </label>
               <input
                 type="number"
@@ -560,7 +583,7 @@ export const CreateRequestView: React.FC<Props> = ({
           {/* Catatan / Keterangan */}
           <div>
             <label className="block text-xs font-bold text-slate-700 mb-1">
-              13. Catatan / Keterangan Khusus
+              14. Catatan / Keterangan Khusus
             </label>
             <textarea
               rows={2}

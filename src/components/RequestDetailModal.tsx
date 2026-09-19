@@ -170,6 +170,9 @@ export const RequestDetailModal: React.FC<Props> = ({
                     <p className="text-xs text-slate-500">
                       {department?.name} ({department?.code})
                     </p>
+                    {request.campus && (
+                      <p className="text-[11px] text-indigo-600 font-medium mt-0.5">{request.campus}</p>
+                    )}
                   </div>
                 </div>
               </div>

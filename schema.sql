@@ -87,6 +87,7 @@ CREATE TABLE IF NOT EXISTS consumption_requests (
     request_number VARCHAR(30) NOT NULL UNIQUE,
     requester_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     department_id UUID NOT NULL REFERENCES departments(id) ON DELETE RESTRICT,
+    campus VARCHAR(100),
     activity_type VARCHAR(50) NOT NULL,
     activity_name VARCHAR(255) NOT NULL,
     guest_name VARCHAR(255) NOT NULL,
@@ -111,6 +112,7 @@ CREATE TABLE IF NOT EXISTS consumption_requests (
 -- Migrasi untuk database yang sudah ada sebelum kolom ini ditambahkan
 -- (CREATE TABLE IF NOT EXISTS di atas tidak menyentuh tabel yang sudah ada).
 ALTER TABLE consumption_requests ADD COLUMN IF NOT EXISTS location VARCHAR(150);
+ALTER TABLE consumption_requests ADD COLUMN IF NOT EXISTS campus VARCHAR(100);
 
 -- 6. APPROVALS TABLE
 CREATE TABLE IF NOT EXISTS approvals (

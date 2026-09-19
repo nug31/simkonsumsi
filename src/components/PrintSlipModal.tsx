@@ -117,6 +117,7 @@ export const PrintSlipModal: React.FC<Props> = ({
                     <td className="border border-black p-2">
                       <p className="font-bold">{item.activity_name}</p>
                       <p className="text-[11px] text-slate-700">Tamu: {item.guest_name}</p>
+                      {item.campus && <p className="text-[11px] text-slate-700">Kampus: {item.campus}</p>}
                       {item.location && <p className="text-[11px] text-slate-700">Lokasi: {item.location}</p>}
                     </td>
                     <td className="border border-black p-2">{getDepartmentName(item.department_id)}</td>

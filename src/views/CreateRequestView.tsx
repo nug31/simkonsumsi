@@ -27,7 +27,7 @@ import {
   FileCheck
 } from 'lucide-react';
 
-const CAMPUS_OPTIONS = ['SMK Mitra Industri 03', 'SMK Mitra Industri 02 Pati'];
+const CAMPUS_OPTIONS = ['SMK Mitra Industri 03', 'SMK Mitra Industri 02 Pati', 'SMK Mitra Industri MM2100'];
 
 interface Props {
   currentUser: User;
